@@ -5,7 +5,7 @@ The goal of the course is to show how to implement analyses and share them using
 
 Course outline is as follows:  
     1)    Use of IPython notebooks to demonstrate and explain code, visualize data, and display analysis results  
-    2)    Applications of Python modules such as SymPy, NumPy, Pandas, and SciPy  
+    2)    Applications of Python modules such as `SymPy`,` NumPy`, `pandas`, and `SciPy`  
     3)    Use of Sweave to demonstrate and explain code, visualize data, display analysis results, and create documents and presentations  
     4)    Integration and execution of IPython and R code and analyses using the IPython notebook
 
