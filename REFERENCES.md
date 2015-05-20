@@ -54,12 +54,12 @@ Markdown|http://daringfireball.net/projects/markdown/syntax|Markdown syntax docu
 ##Datasets
 |Dataset|Site|Description|
 |-----|-----|----|
-2010 US Census|http://www.census.gov/2010census/data/|Population demographics and API for census data
-Federal Election Commission|http://www.fec.gov/disclosurep/PDownload.do|Data on donations and expenditures for Presidential races
-Federal Election Commission|http://www.fec.gov/data/DataCatalog.do|Data on donations and expenditures for all federal races
-MovieLens|http://grouplens.org/datasets/movielens/|Database of movie ratings
-Social Security Administration|http://ssa.gov/oact/babynames/limits.html|SSA Baby Names database
-NY MTA| http://web.mta.info/developers/download.html|Performance and other information for NY MTA systems
-USDA nutrient database|http://ashleyw.co.uk/project/food-nutrient-database|USDA nutrient database in a logically organized JSON format
-General data source| http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-1/|The Data Incubator's list of data for projects, Part 1
-General data sources|http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-2/ |The Data Incubator's list of data for projects, Part 2
+2010 US Census|[US Census data](http://www.census.gov/2010census/data/)|Population demographics and API for census data
+Federal Election Commission|[FEC presidential](http://www.fec.gov/disclosurep/PDownload.do|Data on donations and expenditures for Presidential races)
+Federal Election Commission|[FEC all](http://www.fec.gov/data/DataCatalog.do)|Data on donations and expenditures for all federal races
+MovieLens|[Movie ratings](http://grouplens.org/datasets/movielens/)|Database of movie ratings
+Social Security Administration|[SSA baby names](http://ssa.gov/oact/babynames/limits.html)|SSA Baby Names database
+NY MTA| [NY MTA measures](http://web.mta.info/developers/download.html)|Performance and other information for NY MTA systems
+USDA nutrient database|[Food nutrients](http://ashleyw.co.uk/project/food-nutrient-database)|USDA nutrient database in a logically organized JSON format
+General data source| [Data Incubator suggested sources, part 1](http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-1/)|The Data Incubator's list of data for projects, Part 1
+General data sources|[Data Incubator suggested sources, part 1](http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-2/)|The Data Incubator's list of data for projects, Part 2
