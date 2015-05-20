@@ -11,7 +11,7 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 - Putting up own data for analysis  
 - Adding own data files to course repository  
 
-# Day 2: `Pandas`, `Numpy`, `SciPy`, `Matplotlib`
+# Day 2: `Pandas`, `NumPy`, `SciPy`, `Matplotlib`
 
 ## Hour 1: Basic `pandas` functionality
 - Data formats (CSV, TSV, TXT, ODF, Excel, XML, JSON)  
@@ -41,7 +41,7 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 - Logistic regression  
 - (Generalized) Linear Mixed Models  
 
-## Hour 2: Report generation with RMarkdown, Sweave and knitr
+## Hour 2: Report generation with [RMarkdown](http://rmarkdown.rstudio.com/), [Sweave](http://www.statistik.lmu.de/~leisch/Sweave/) and [knitr](http://yihui.name/knitr/)
 
 # Day 4: Advanced numerical analysis
 
