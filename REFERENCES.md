@@ -42,7 +42,7 @@ Jupyter/IPython|http://ipython.org/ipython-doc/stable/index.html|IPython documen
 `SymPy`|http://docs.sympy.org/latest/index.html|`SymPy` documentation
 `Seaborn`|http://stanford.edu/~mwaskom/software/seaborn/index.html|`Seaborn` documentation
 `Statsmodels`|http://statsmodels.sourceforge.net/devel/index.html|`Statsmodels` documentation
-`dplyr`|http://cran.r-project.org/web/packages/dplyr/index.html\CRAN `dplyr` page
+`dplyr`|http://cran.r-project.org/web/packages/dplyr/index.html|CRAN `dplyr` page
 `lme4`|http://cran.r-project.org/web/packages/lme4/index.html|CRAN lme4 page (see also GitHub)
 `ggplot2`|http://cran.r-project.org/web/packages/ggplot2/index.html|CRAN ggplot2 page
 `knitr`|http://cran.r-project.org/web/packages/knitr/index.html|CRAN knitr page
@@ -52,4 +52,14 @@ RMarkdown|http://rmarkdown.rstudio.com/|RMarkdown documentation
 Markdown|http://daringfireball.net/projects/markdown/syntax|Markdown syntax documentation
 
 ##Datasets
-
+|Dataset|Site|Description|
+|-----|-----|----|
+2010 US Census|http://www.census.gov/2010census/data/|Population demographics and API for census data
+Federal Election Commission|http://www.fec.gov/disclosurep/PDownload.do|Data on donations and expenditures for Presidential races
+Federal Election Commission|http://www.fec.gov/data/DataCatalog.do|Data on donations and expenditures for all federal races
+MovieLens|http://grouplens.org/datasets/movielens/|Database of movie ratings
+Social Security Administration|http://ssa.gov/oact/babynames/limits.html|SSA Baby Names database
+NY MTA| http://web.mta.info/developers/download.html|Performance and other information for NY MTA systems
+USDA nutrient database|http://ashleyw.co.uk/project/food-nutrient-database|USDA nutrient database in a logically organized JSON format
+General data source| http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-1/|The Data Incubator's list of data for projects, Part 1
+General data sources|http://blog.thedataincubator.com/2014/10/data-sources-for-cool-data-science-projects-part-2/ |The Data Incubator's list of data for projects, Part 2
