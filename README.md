@@ -9,3 +9,5 @@ Course outline is as follows:
     3)    Use of Sweave to demonstrate and explain code, visualize data, display analysis results, and create documents and presentations  
     4)    Integration and execution of IPython and R code and analyses using the IPython notebook
 
+# Syllabus
+[Link to course syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md)
