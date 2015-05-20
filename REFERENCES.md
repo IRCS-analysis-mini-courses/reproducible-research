@@ -55,7 +55,7 @@ Markdown|http://daringfireball.net/projects/markdown/syntax|Markdown syntax docu
 |Dataset|Site|Description|
 |-----|-----|----|
 2010 US Census|[US Census data](http://www.census.gov/2010census/data/)|Population demographics and API for census data
-Federal Election Commission|[FEC presidential](http://www.fec.gov/disclosurep/PDownload.do|Data on donations and expenditures for Presidential races)
+Federal Election Commission|[FEC presidential](http://www.fec.gov/disclosurep/PDownload.do)|Data on donations and expenditures for Presidential races
 Federal Election Commission|[FEC all](http://www.fec.gov/data/DataCatalog.do)|Data on donations and expenditures for all federal races
 MovieLens|[Movie ratings](http://grouplens.org/datasets/movielens/)|Database of movie ratings
 Social Security Administration|[SSA baby names](http://ssa.gov/oact/babynames/limits.html)|SSA Baby Names database
