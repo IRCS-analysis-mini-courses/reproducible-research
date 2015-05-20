@@ -11,3 +11,6 @@ Course outline is as follows:
 
 # Syllabus
 [Link to course syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md)
+
+# References
+[Table of books, websites, package documentation and datasets to aid in programming, analysis and data science](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/REFERENCES.md)
