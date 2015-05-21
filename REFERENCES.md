@@ -43,7 +43,7 @@ Jupyter/IPython|http://ipython.org/ipython-doc/stable/index.html|IPython documen
 `Seaborn`|http://stanford.edu/~mwaskom/software/seaborn/index.html|`Seaborn` documentation
 `Statsmodels`|http://statsmodels.sourceforge.net/devel/index.html|`Statsmodels` documentation
 `dplyr`|http://cran.r-project.org/web/packages/dplyr/index.html|CRAN `dplyr` page
-`lme4`|http://cran.r-project.org/web/packages/lme4/index.html|CRAN lme4 page (see also [GitHub](https://github.com/lme4/lme4/)
+`lme4`|http://cran.r-project.org/web/packages/lme4/index.html|CRAN lme4 page (see also [GitHub](https://github.com/lme4/lme4/))
 `ggplot2`|http://cran.r-project.org/web/packages/ggplot2/index.html|CRAN ggplot2 page
 `knitr`|http://cran.r-project.org/web/packages/knitr/index.html|CRAN knitr page
 Sweave|https://www.statistik.lmu.de/~leisch/Sweave/|Sweave documentation
