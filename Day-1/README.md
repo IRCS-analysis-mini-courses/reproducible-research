@@ -7,7 +7,7 @@ For the first day of the course, we will set up all the needed software. If you 
 - IPython 3.1.0  
 - Jupyter/IPython notebook  
 - Anaconda (will install IPython, Jupyter/IPython notebook and SciPy stack) 
-- Julia 0.3.8 (not needed, but integrates with Jupyter/IPython notebook and is young, but good language for numeric analysis and statistics)  
+
 
 ###R
 - R 3.1.3 or higher  
@@ -18,3 +18,6 @@ For the first day of the course, we will set up all the needed software. If you 
 - LaTeX  
 - GitHub account
 - various Python and R packages for data munging and visualization (see [syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md) and [references](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/REFERENCES.md))
+
+###Suggested
+[Julia 0.3.8](http://julialang.org/) (not needed, but integrates with Jupyter/IPython notebook and is young, but good language for numeric analysis and statistics)  
