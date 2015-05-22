@@ -6,7 +6,8 @@ For the first day of the course, we will set up all the needed software. If you 
 - Python 2.7.x  
 - IPython 3.1.0  
 - Jupyter/IPython notebook  
-- Anaconda (will install IPython, Jupyter/IPython notebook and SciPy stack)  
+- Anaconda (will install IPython, Jupyter/IPython notebook and SciPy stack) 
+- Julia 0.3.8 (not needed, but integrates with Jupyter/IPython notebook and is young, but good language for numeric analysis and statistics)  
 
 ###R
 - R 3.1.3 or higher  
