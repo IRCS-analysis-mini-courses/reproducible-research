@@ -17,4 +17,4 @@ For the first day of the course, we will set up all the needed software. If you 
 - Pandoc  
 - LaTeX  
 - GitHub account
-- various Python and R packages for data munging and visualization (see syllabus)
+- various Python and R packages for data munging and visualization (see [syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md) and [references](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/REFERENCES.md))
