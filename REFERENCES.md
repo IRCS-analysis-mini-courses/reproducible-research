@@ -18,7 +18,7 @@ R Cookbook| Paul Teetor|
 [Interesting IPython notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks)|Jupyter/IPython|IPython/IJulia notebooks on a variety of topics and tutorials
 [List of stats blogs](http://www.r-bloggers.com/40-fascinating-blogs-for-the-ultimate-statistics-geek/)|Statistics|List of blogs (some links dead) that cover topics in statistics
 [Google Python style guide](https://google-styleguide.googlecode.com/svn/trunk/pyguide.html)|Python|Google's Python style guide - relative to Google internal, but recommended!
-[Google R style guide](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)|Google's R style guide| Google's R style guide - follow it!
+[Google R style guide](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml)|R| Google's R style guide - follow it!
 [Princeton WW509 R examples](http://data.princeton.edu/wws509/R)|R|Germán Rodriguez's site with R instructionals and tutorials
 [RStudio cheatsheets](http://www.rstudio.com/resources/cheatsheets/)|R|RStudio cheatsheets for visualization, data munging, markdown syntax and others
 [UCLA statistics](http://statistics.ats.ucla.edu/stat/r/)|R|UCLA statistics site for learning to use R
