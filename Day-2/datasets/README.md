@@ -6,7 +6,7 @@ This directory contains example datasets that you can play around with. This inc
 - Psychophysics dataset: dataset from as yet unpublished synthetic vowel discrimination experiment  
 - Electrophysiology dataset: dataset from published clinical study; more details [can be found here](http://julian3rd.github.io/chromosomal-mutations-auditory-latency/)  
 
-##Asignment datasets
+##Assignment datasets
 There are several datasets that are examples of the kinds of summaries you can create using the 2012 FEC US Presidential campaign dataset. You may use these as a guide in order to create different summaries. Also included are plots based off of these summaries.  
 
 The other dataset is from a mutivariate experiment. Try to implement the same manner of analyses and visualizations as in the notebooks. It is a very large dataset (4.3 MB) with 80000 (eighty thousand) rows and data from 100 subjects.  We will review some analyses and results as well as a report prepared from the data on Monday.  
