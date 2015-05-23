@@ -29,6 +29,9 @@ R Cookbook| Paul Teetor|
 [Data Origami: 538-style plots in Python](http://dataorigami.net/blogs/napkin-folding/17543615-replicating-538s-plot-styles-in-matplotlib)|Python|Create 538-style graphs in `Matplotlib`
 [`Matplotlib` style sheets](http://matplotlib.org/users/style_sheets.html)|Python|How to create custom styles in Matplotlib
 [Google Python class](https://developers.google.com/edu/python/?csw=1)|Python|Google's Python class with useful exercises
+[Python cheat sheet by Dave Child](http://www.cheatography.com/davechild/cheat-sheets/python/)|Python|Python cheat sheet with common commands and methods
+[R reference card](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)|R| Refernce card for R commands and packages
+[R reference card for data mining](http://www.rdatamining.com/docs/r-reference-card-for-data-mining)|R|R reference card for data ming from [RDataMining.com](http://www.rdatamining.com/)
 
 ##Package documentation
 |Package|Site|Description|
