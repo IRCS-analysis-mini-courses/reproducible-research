@@ -46,6 +46,8 @@ Jupyter/IPython|http://ipython.org/ipython-doc/stable/index.html|IPython documen
 `lme4`|http://cran.r-project.org/web/packages/lme4/index.html|CRAN `lme4` page (see also [GitHub](https://github.com/lme4/lme4/))
 `ggplot2`|http://cran.r-project.org/web/packages/ggplot2/index.html|CRAN `ggplot2` page
 `knitr`|http://cran.r-project.org/web/packages/knitr/index.html|CRAN `knitr` page
+`multcomp`|http://cran.r-project.org/web/packages/multcomp/index.html|CRAN `multcomp` page
+`languageR`|http://cran.r-project.org/web/packages/languageR/index.html|CRAN `languageR` page
 Sweave|https://www.statistik.lmu.de/~leisch/Sweave/|Sweave documentation
 RMarkdown|http://rmarkdown.rstudio.com/|RMarkdown documentation
 'Hadleyverse'|https://github.com/hadley?tab=repositories|Hadley Wickham's GitHub repos
