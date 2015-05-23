@@ -1,7 +1,7 @@
 #Day Two
 
 ## Overview
-Day two will focus on importing, exploring, visualing, summarizing, and exporting data in Python. Modules used include `pandas`, `NumPy`. Depending on the needs, other modules will be used (such as those that can read XML and JSON files and can pull data from databases). The Jupyter/IPython notebook contains details while the HTML slides contain a general overview. The goal is to have a general overview dueing the lecture and details about manipulating datasets are covered in the notebook to aid in assignments and reading in you own data.  
+Day two will focus on importing, exploring, visualing, summarizing, and exporting data in Python. Modules used include `pandas`, `NumPy`. Depending on the needs, other modules will be used (such as those that can read XML and JSON files and can pull data from databases). The Jupyter/IPython notebook contains details while the HTML slides contain a general overview. The goal is to have a general overview during the lecture and details about manipulating datasets are covered in the notebook to aid in assignments and reading in you own data.  
 
 ##Hour 1
 The first hour covers basic `pandas` functionality. Topics include:  
