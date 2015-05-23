@@ -11,7 +11,7 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 - Putting up own data for analysis  
 - Adding own data files to course repository  
 
-# Day 2: `Pandas`, `NumPy`, `SciPy`, `Matplotlib`
+# Day 2: `pandas`, `NumPy`, `SciPy`, `Matplotlib`
 
 ## Hour 1: Basic `pandas` functionality
 - Data formats (CSV, TSV, TXT, ODF, Excel, XML, JSON)  
