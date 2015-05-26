@@ -19,13 +19,13 @@ census.data.base <-
   read.csv(file.path(file.dir, census.file), 
            stringsAsFactors = FALSE, header = TRUE)
 
-View(census.data.base)
+head(census.data.base)
 
 # importing 2010 US Census data with readr --------------------------------
 
 census.data.readr <- read_csv(census.url, col_names = TRUE)
 
-View(census.data.readr)
+head(census.data.readr)
 
 
 # import 2010 US Census data with base R; skip 1st 3 lines ----------------
@@ -57,7 +57,7 @@ program.effort.base <-
 read.table(file.path(file.dir, program.effort.file),
          stringsAsFactors = FALSE, header = TRUE)
 
-View(program.effort.base)
+head(program.effort.base)
 
 # change column names
 
@@ -68,7 +68,7 @@ program.effort.base <-
              stringsAsFactors = FALSE, header = TRUE, 
              col.names = program.columns)
 
-View(program.effort.base)
+head(program.effort.base)
 
 
 # import program effort data using readr ----------------------------------
@@ -77,7 +77,7 @@ View(program.effort.base)
 
 program.effort.readr  <- read_table(program.effort.url)
 
-View(program.effort.readr)
+head(program.effort.readr)
 
 # import data again with variable whitespace
 
@@ -100,7 +100,7 @@ program.effort.readr.separate <-
 program.effort.readr.separate$Country <- NULL
 colnames(program.effort.readr.separate) <- program.columns
 
-View(program.effort.readr)
+head(program.effort.readr)
 
 
 # importing FEC dataset (unzipped already) using readr --------------------

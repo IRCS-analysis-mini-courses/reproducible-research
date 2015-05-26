@@ -103,3 +103,26 @@ apply(data.frame(density.data.cols.readr, which.idx.readr), 1,
 # 6. missing data
 # 7. summaries and basic stats
 
+# inititate Mersenne_Twister algorithm, set seed, save state
+RNGkind('Mersenne-Twister')
+set.seed(86519883)
+old.seed <- .Random.seed
+
+# new data.frame in base R
+
+test.mtx <- rnorm(n = 30)
+test.mtx <- matrix(test.mtx, nrow = 10)
+test.cols <- c('first', 'second', 'third')
+
+test.data.frame <- data.frame(test.mtx)
+colnames(test.data.frame) <- test.cols
+
+test.data.frame
+
+# do the same with dplyr
+library(dplyr)
+
+test.dplyr.frame <- data_frame(test.mtx)
+colnames(test.dplyr.frame) <- test.cols
+
+test.dplyr.frame
