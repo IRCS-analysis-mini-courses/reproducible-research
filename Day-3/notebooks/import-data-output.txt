@@ -105,7 +105,7 @@ Variables not shown: [EMPTY] (chr), [EMPTY] (chr), [EMPTY] (chr), [EMPTY] (chr),
 
 > file.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
 
-> program.effort.file <- 'program-effort-from-r.csv'
+> program.effort.file <- 'program-effort-from-r.dat'
 
 > program.effort.data  <- 
 +   download.file(url = program.effort.url, 

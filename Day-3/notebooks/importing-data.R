@@ -47,7 +47,7 @@ census.data.readr <- read_csv(census.url, col_names = TRUE, skip = 3)
 
 program.effort.url <- 'http://data.princeton.edu/wws509/datasets/effort.dat'
 file.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
-program.effort.file <- 'program-effort-from-r.csv'
+program.effort.file <- 'program-effort-from-r.dat'
 
 program.effort.data  <- 
   download.file(url = program.effort.url, 
