@@ -1,11 +1,15 @@
 #!/usr/bin/env Rscript
 
+sink(file = '~/GitHub/reproducible-research/Day-3/notebooks/')
+
 library(readr)
 
 # importing 2010 US Census data with base R -------------------------------
 
 census.url <- 'http://www.census.gov/2010census/csv/pop_density.csv'
-file.dir <- '~/GitHub/reproducible-research/Day-3'
+
+file.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
+
 census.file <- 'census-data-from-r.csv'
 
 census.data  <- 
@@ -42,7 +46,7 @@ census.data.readr <- read_csv(census.url, col_names = TRUE, skip = 3)
 # on the first try but we need to supply correct column names
 
 program.effort.url <- 'http://data.princeton.edu/wws509/datasets/effort.dat'
-file.dir <- '~/GitHub/reproducible-research/Day-3'
+file.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
 program.effort.file <- 'program-effort-from-r.csv'
 
 program.effort.data  <- 
@@ -77,6 +81,26 @@ View(program.effort.readr)
 
 # import data again with variable whitespace
 
-program.effort.readr  <- read_table(program.effort.url)
+program.effort.readr  <- 
+  read_delim(program.effort.url, delim = "s+", escape_backslash = FALSE,
+             col_names = TRUE)
 
 View(program.effort.readr)
+
+
+# importing FEC dataset (unzipped already) using readr --------------------
+
+# using version of dataset with different attributes appended to each row
+# total file is ~2GB
+
+fec.file <- '~/Documents/ircs-mini-course-data/fec-data-complete-formatted.csv'
+
+fec.data <- read_csv(fec.file, col_names = TRUE)
+
+head(fec.data)
+
+dplyr::glimpse(fec.data)
+
+pryr::object_size(fec.data)
+
+sink()
