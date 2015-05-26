@@ -66,14 +66,14 @@ program.columns <- c('Country', 'Setting', 'Effort', 'Change')
 program.effort.base <- 
   read.table(file.path(file.dir, program.effort.file),
              stringsAsFactors = FALSE, header = TRUE, 
-             col.names = program.columns)
+             col.names = program.columns, row.names = NULL)
 
 head(program.effort.base)
 
 
 # import program effort data using readr ----------------------------------
 
-# notice that reader does not properly read the variable spacing
+# notice that readr does not properly read the variable spacing
 
 program.effort.readr  <- read_table(program.effort.url)
 
@@ -85,7 +85,7 @@ program.effort.readr  <-
   read_delim(program.effort.url, delim = '/s+', skip = 1, col_names = FALSE)
 
 # remove empty bottom rows
-program.effort.readr <- program.effort.readr[-c(21, 22), ]
+program.effort.readr <- dplyr::slice(program.effort.readr, 1:20)
 
 # separate single column into multiple
 program.effort.readr.separate <- 
