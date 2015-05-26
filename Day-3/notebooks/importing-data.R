@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-sink(file = '~/GitHub/reproducible-research/Day-3/notebooks/')
+sink(file = '~/GitHub/reproducible-research/Day-3/notebooks/import-data-output.txt')
 
 library(readr)
 
@@ -82,8 +82,23 @@ View(program.effort.readr)
 # import data again with variable whitespace
 
 program.effort.readr  <- 
-  read_delim(program.effort.url, delim = "s+", escape_backslash = FALSE,
-             col_names = TRUE)
+  read_delim(program.effort.url, delim = '/s+', skip = 1, col_names = FALSE)
+
+# remove empty bottom rows
+program.effort.readr <- program.effort.readr[-c(21, 22), ]
+
+# separate single column into multiple
+program.effort.readr.separate <- 
+  tidyr::separate(program.effort.readr, col = X1, into = program.columns,
+                  extra = 'merge')
+
+program.effort.readr.separate <- 
+  tidyr::separate(program.effort.readr.separate, col = Change, 
+                  into = c('Effort', 'Change'), extra = 'merge')
+
+# drop and rename columns
+program.effort.readr.separate$Country <- NULL
+colnames(program.effort.readr.separate) <- program.columns
 
 View(program.effort.readr)
 
@@ -96,8 +111,6 @@ View(program.effort.readr)
 fec.file <- '~/Documents/ircs-mini-course-data/fec-data-complete-formatted.csv'
 
 fec.data <- read_csv(fec.file, col_names = TRUE)
-
-head(fec.data)
 
 dplyr::glimpse(fec.data)
 
