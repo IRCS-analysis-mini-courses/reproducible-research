@@ -1,7 +1,11 @@
 #!/usr/bin/env Rscript
 
+library(plyr)
+library(dplyr)
+library(readr)
+
 target.dir <- '~/GitHub/reproducible-research/Day-3/notebooks'
-target.file <- 'basic-data-frame-unctionality.txt'
+target.file <- 'basic-data-frame-functionality.txt'
 sink(file = file.path(target.dir, target.file))
 
 # basic functionality with base R data.frame ------------------------------
@@ -104,9 +108,13 @@ apply(data.frame(density.data.cols.readr, which.idx.readr), 1,
 # 7. summaries and basic stats
 
 # inititate Mersenne_Twister algorithm, set seed, save state
+
 RNGkind('Mersenne-Twister')
 set.seed(86519883)
 old.seed <- .Random.seed
+
+
+# creating new data frames
 
 # new data.frame in base R
 
@@ -120,9 +128,149 @@ colnames(test.data.frame) <- test.cols
 test.data.frame
 
 # do the same with dplyr
-library(dplyr)
 
-test.dplyr.frame <- data_frame(test.mtx)
+# cannot make directly yet, so you use this
+# in process of being changed with next release
+# see https://github.com/hadley/dplyr/issues/876
+
+test.dplyr.frame <- 
+  as.data.frame(test.mtx, stringsAsFactors = FALSE) %>%
+  as_data_frame()
+
 colnames(test.dplyr.frame) <- test.cols
 
 test.dplyr.frame
+
+## creating new data.frame from vectors in base R
+
+int.col <- round(runif(n = 5, min = 0, max = 255))
+char.col <- c('sample1', 'sample2', 'sample3', 'sample4', 'sample5')
+binom.col <- rbinom(n = 5, size = 1, p = 0.56)
+
+test.data.frame.2 <- data.frame(int.col, char.col, binom.col)
+
+test.data.frame.2
+
+
+# creating new data_frame via dplyr
+
+test.dplyr.frame.2 <- data_frame(int.col, char.col, binom.col)
+test.dplyr.frame.2
+
+## indexing and slicing
+
+test.data.frame$first
+
+test.data.frame.2['char.col']
+
+log.normal.vec <- rlnorm(meanlog = 2.7, sdlog = 0.2, n = 30)
+normal.vec <- rlnorm(mean = -1.6, sd = 2.8, n = 30)
+unif.vec <- runif(min = 55, max = 2000, n = 30)
+
+test.dplyr.frame.3 <- data_frame(log.normal.vec, normal.vec, unif.vec)
+colnames(test.dplyr.frame.3) <- c('one', '2', 'third')
+
+test.dplyr.frame.3
+
+# notice there is no ':' operator in R to access all columns
+test.dplyr.frame.3[1:15, ]
+
+
+## make row names characters and iterate over them
+row.names(census.data.base) <- census.data.base$STATE_OR_REGION
+
+for (name in row.names(census.data.base)) {
+  cat(name, census.data.base[name, 'X2010_POPULATION'], fill = 30)
+}
+
+
+## removing data
+census.data.base <- census.data.base[-c(1), ]
+census.data.base
+
+test.dplyr.frame.3$one <- NULL
+test.dplyr.frame.3
+
+test.data.frame.2 <- test.data.frame.2[-c(2, 4)]
+head(test.data.frame.2)
+
+## converting between long and wide format
+library(reshape2)
+
+child.data.file <- 
+  '~/GitHub/reproducible-research/Day-2/datasets/published-data-complete.csv'
+
+# put the data into wide format; there are separate measures
+# for each Hemisphere and Condition; these go on the right side of
+# the formula specification
+
+child.data <- read.csv(child.data.file, header = TRUE)
+
+child.data.wide <- 
+  dcast(data = child.data, formula = Subject + Site + Age_Calc + Gender + 
+          Handedness + ASD + NVIQ + VIQ + CELF.4 + SRS_parent + CTOPP + 
+          Case + cutAge + breakAge ~ Hem + Cond,
+        value.var = "M100LatCorr")
+
+head(child.data.wide)
+
+
+## mapping values
+
+state.names <- 
+  c('Connecticut', 'Maine', 'Massachusetts',
+    'New Hampshire', 'Rhode Island', 'Vermont',
+    'New Jersey', 'New York', 'Pennsylvania',
+    'Illinois', 'Indiana', 'Michigan', 'Ohio',
+    'Wisconsin', 'Iowa', 'Kansas', 'Minnesota',
+    'Nebraska', 'North Dakota', 'South Dakota', 'Missouri',
+    'Delaware', 'Florida', 'Georgia', 'Maryland', 
+    'North Carolina', 'South Carolina', 'Virginia',
+    'West Virginia', 'Alabama', 'Kentucky', 'Mississippi', 
+    'Tennessee', 'Arkansas', 'Louisiana', 'Oklahoma', 
+    'Texas', 'Arizona', 'Colorado', 'Idaho', 'Montana', 
+    'Nevada', 'New Mexico', 'Utah', 'Wyoming', 'Alaska',
+    'California', 'Hawaii', 'Oregon', 'Washington')
+
+state.abbrev <- 
+  c('CT', 'ME', 'MA','NH', 'RI', 'VT','NJ', 'NY', 'PA',
+    'IL', 'IN', 'MI', 'OH','WI', 'IA', 'KS', 'MN',
+    'NE', 'ND', 'SD', 'MO','DE', 'FL', 'GA', 'MD', 
+    'NC', 'SC', 'VA','WV', 'AL', 'KY', 'MS', 
+    'TN', 'AR', 'LA', 'OK', 'TX', 'AZ', 'CO', 'ID', 'MT', 
+    'NV', 'NM', 'UT', 'WY', 'AK', 'CA', 'HI', 'OR', 'WA')
+
+census.data.readr$abbrev <- 
+  mapvalues(census.data.readr$STATE_OR_REGION, 
+            from  = state.name, to = state.abbrev)
+
+colnames(census.data.readr)
+
+census.data.readr$abbrev
+
+## get summaries of data
+
+# column means of populations
+
+pop.cols <- 
+  c('1910_POPULATION', '1920_POPULATION', '1930_POPULATION', '1940_POPULATION', 
+    '1950_POPULATION', '1960_POPULATION', '1970_POPULATION', '1980_POPULATION',
+    '1990_POPULATION', '2000_POPULATION', '2010_POPULATION')
+
+colMeans(census.data.readr[ ,pop.cols])
+colSums(census.data.readr[ ,pop.cols])
+
+# can also compute a new vector as 
+
+summary(census.data.base)
+
+str(census.data.base)
+
+# extra information using dplyr
+
+glimpse(census.data.base)
+
+
+
+sink()
+
