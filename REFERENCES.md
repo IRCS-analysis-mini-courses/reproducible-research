@@ -32,7 +32,7 @@ R Cookbook| Paul Teetor|
 [Python cheat sheet by Dave Child](http://www.cheatography.com/davechild/cheat-sheets/python/)|Python|Python cheat sheet with common commands and methods
 [R reference card](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)|R| Refernce card for R commands and packages
 [R reference card for data mining](http://www.rdatamining.com/docs/r-reference-card-for-data-mining)|R|R reference card for data ming from [RDataMining.com](http://www.rdatamining.com/)
-[Sweaveand `knitr` intro and examples](http://biostat.mc.vanderbilt.edu/wiki/Main/SweaveLatex)|R|Sweave  `knitr` introduction and template examples from Vanderbilit biostats
+[Sweave and `knitr` intro and examples](http://biostat.mc.vanderbilt.edu/wiki/Main/SweaveLatex)|R|Sweave and  `knitr` introduction and template examples from Vanderbilit biostats
 
 ##Package documentation
 |Package|Site|Description|
