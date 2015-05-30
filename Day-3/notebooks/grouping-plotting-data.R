@@ -268,7 +268,7 @@ ggplot(plot.df, aes(x = col4)) +
 
 
 # kernel density estimates
-# not that ggplot picks a different rule of thumb to determine bandwidth
+# not that R/ggplot picks a different rule of thumb to determine bandwidth
 
 ggplot(plot.df, aes(x = col1)) + 
   geom_density(colour = '#000000') + 
