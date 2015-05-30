@@ -253,22 +253,82 @@ census.data.readr$abbrev
 # column means of populations
 
 pop.cols <- 
-  c('1910_POPULATION', '1920_POPULATION', '1930_POPULATION', '1940_POPULATION', 
-    '1950_POPULATION', '1960_POPULATION', '1970_POPULATION', '1980_POPULATION',
-    '1990_POPULATION', '2000_POPULATION', '2010_POPULATION')
+  c('X1910_POPULATION', 'X1920_POPULATION', 'X1930_POPULATION', 'X1940_POPULATION', 
+    'X1950_POPULATION', 'X1960_POPULATION', 'X1970_POPULATION', 'X1980_POPULATION',
+    'X1990_POPULATION', 'X2000_POPULATION', 'X2010_POPULATION')
 
-colMeans(census.data.readr[ ,pop.cols])
-colSums(census.data.readr[ ,pop.cols])
+rowMeans(census.data.base[ ,pop.cols])
+rowSums(census.data.base[ ,pop.cols])
 
-# can also compute a new vector as 
+colMeans(census.data.base[ ,pop.cols])
+colSums(census.data.base[ ,pop.cols])
 
+# append row means to the data.frame
+census.data.base$MeanPop <- rowMeans(census.data.base[ ,pop.cols])
+
+# missing data
+
+# to get elementwise missing, use is.na()
+# is.null() tells whether or not the vector is null
+is.na(census.data.base[, 'MeanPop'])
+is.null(census.data.base[, 'MeanPop'])
+
+# notice that dplyr fills in whatever the original value is
+# in a mapping if it is missing
+is.na(census.data.readr$abbrev)
+
+# dropping missing values is easy with the subset() command;
+# make sure to use droplevels() afterward to fully remove
+# as R knows the parent data.frame the data came from
+
+# to remove all NA entries, use na.omit()
+
+census.data.base[c(9, 52), ] <- NA
+
+census.data.base.na.removed <- na.omit(census.data.base)
+
+sprintf('Data dimensions with all entries: %d rows, %d columns',  
+        density.data.dimen[1], density.data.dimen[2])
+
+sprintf('Data dimensions with NA removed: %d rows, %d columns',  
+        dim(census.data.base.na.removed)[1], 
+            dim(census.data.base.na.removed)[2])
+
+# note that while readr will not put an X in front of numers
+# you still cannot access the column using '$'
+
+census.data.readr[c(1, 3, 49, 23, 36, 48, 12), 'STATE_OR_REGION'] <- NA
+
+# notice that objects of class tbl_df remove NA in-place
+census.data.readr.na.removed <- 
+  subset(census.data.readr, STATE_OR_REGION != 'NA')
+
+
+# modification in-lace is not done for objects of class data.frame
+census.data.base[c(1, 3, 49, 23, 36, 48, 12), 'STATE_OR_REGION'] <- NA
+
+census.data.base.na.removed.2 <- 
+  subset(census.data.base, STATE_OR_REGION != 'NA')
+
+sprintf('Data dimensions prior to dropping: %d rows, %d columns', 
+        dim(census.data.base)[1],
+        dim(census.data.base)[2])
+
+census.data.base.na.removed.2 <- 
+  droplevels(census.data.base.na.removed.2)
+
+sprintf('Data dimensions after to dropping: %d rows, %d columns', 
+        dim(census.data.base.na.removed.2)[1],
+        dim(census.data.base.na.removed.2)[2])
+
+## summarizing data
 summary(census.data.base)
-
 str(census.data.base)
 
 # extra information using dplyr
-
-glimpse(census.data.base)
+summary(census.data.readr)
+str(census.data.readr)
+glimpse(census.data.readr)
 
 
 
