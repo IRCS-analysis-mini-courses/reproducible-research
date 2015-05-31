@@ -137,12 +137,31 @@ dplyr::glimpse(lat.age.model.fortify)
 
 ggplot(lat.age.model.fortify, aes(.resid)) + geom_density(fill = 'gray')
 
+# additional diagnostics and plots with car package
+library(car)
+
+durbinWatsonTest(lat.age.model.fortify$.resid)
+
+outlierTest(lat.age.model)
+
+sigmaHat(lat.age.model)
+
+par(mfrow = c(1, 1))
+
+influencePlot(lat.age.model)
+
+infIndexPlot(lat.age.model)
+
+qqPlot(lat.age.model)
+
+residualPlots(lat.age.model)
+
 
 # linear mixed effects models ---------------------------------------------
 
 library(lme4)
 library(multcomp)
-library(car)
+
 
 # internal numeric representation of the categorical predictors
 

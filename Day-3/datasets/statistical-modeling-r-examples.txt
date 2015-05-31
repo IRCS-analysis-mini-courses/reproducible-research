@@ -18,27 +18,34 @@
 > child.study.data$Predicted <- NULL
 
 > head(child.study.data)
-   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness      Dx Chromosome
-1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-         Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult CTOPP    ICV2    cmICV  Hem
-1 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-2 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-3 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-4 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-5 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-6 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-    Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL M100compCase M50compCase   cutAge breakAge
-1  1-200    120      NA         92          NA    25            0           1 under-12   (9,10]
-2  2-300     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-3  3-500     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-4 4-1000     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-5  1-200     NA     162         NA         134    25            1           0 under-12   (9,10]
-6  2-300     NA     148         NA         120    25            1           0 under-12   (9,10]
+   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness
+1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+       Dx Chromosome        Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult
+1 proband        16p duplication duplication FALSE   77  86     75        145        NA
+2 proband        16p duplication duplication FALSE   77  86     75        145        NA
+3 proband        16p duplication duplication FALSE   77  86     75        145        NA
+4 proband        16p duplication duplication FALSE   77  86     75        145        NA
+5 proband        16p duplication duplication FALSE   77  86     75        145        NA
+6 proband        16p duplication duplication FALSE   77  86     75        145        NA
+  CTOPP    ICV2    cmICV  Hem   Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL
+1     6 1422314 1422.314 1-LH  1-200    120      NA         92          NA    25
+2     6 1422314 1422.314 1-LH  2-300     NA      NA         NA          NA    25
+3     6 1422314 1422.314 1-LH  3-500     NA      NA         NA          NA    25
+4     6 1422314 1422.314 1-LH 4-1000     NA      NA         NA          NA    25
+5     6 1422314 1422.314 2-RH  1-200     NA     162         NA         134    25
+6     6 1422314 1422.314 2-RH  2-300     NA     148         NA         120    25
+  M100compCase M50compCase   cutAge breakAge
+1            0           1 under-12   (9,10]
+2            0           0 under-12   (9,10]
+3            0           0 under-12   (9,10]
+4            0           0 under-12   (9,10]
+5            1           0 under-12   (9,10]
+6            1           0 under-12   (9,10]
 
 > str(child.study.data)
 'data.frame':	792 obs. of  34 variables:
@@ -78,92 +85,100 @@
  $ breakAge    : Factor w/ 10 levels "(10,11]","(11,12]",..: 9 9 9 9 9 9 9 9 2 2 ...
 
 > summary(child.study.data)
-     Subject      Site     Exclusions       DOS           DOB           Age           Age_Calc     
- 3002-102:  8   CHOP:376   no:792     2/23/12 : 24   3/23/02: 16   Min.   : 7.00   Min.   : 7.307  
- 3003-101:  8   UCSF:416              10/18/13: 16   4/26/98: 16   1st Qu.:10.00   1st Qu.: 9.953  
- 3003-102:  8                         11/18/11: 16   6/5/06 : 16   Median :11.00   Median :11.677  
- 3005-101:  8                         11/19/12: 16   8/22/03: 16   Mean   :11.49   Mean   :11.958  
- 3011-101:  8                         11/8/13 : 16   1/15/01:  8   3rd Qu.:14.00   3rd Qu.:14.216  
- 3014-101:  8                         2/18/13 : 16   1/16/04:  8   Max.   :17.00   Max.   :17.151  
- (Other) :744                         (Other) :688   (Other):712                                   
-  AgeGroup      Gender           Handedness        Dx        Chromosome           Case    
- child:792   female:320   ambidextrous:120   control:384   16p    :408   control    :384  
-             male  :472   left        :112   proband:408   control:384   deletion   :280  
-                          right       :560                               duplication:128  
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-         Copies         ASD           NVIQ             VIQ             CELF.4         SRS_parent   
- control    :384   control:384   Min.   : 53.00   Min.   : 54.00   Min.   : 40.00   Min.   :  0.0  
- deletion   :280   FALSE  :304   1st Qu.: 87.00   1st Qu.: 87.00   1st Qu.: 79.00   1st Qu.: 12.0  
- duplication:128   TRUE   :104   Median : 96.50   Median : 98.00   Median : 97.00   Median : 31.5  
-                                 Mean   : 95.89   Mean   : 96.38   Mean   : 91.91   Mean   : 46.9  
-                                 3rd Qu.:105.00   3rd Qu.:107.00   3rd Qu.:108.00   3rd Qu.: 77.0  
-                                 Max.   :136.00   Max.   :147.00   Max.   :132.00   Max.   :145.0  
-                                 NA's   :40       NA's   :40       NA's   :96       NA's   :40     
- SRS_adult          CTOPP             ICV2             cmICV        Hem          Cond    
- Mode:logical   Min.   : 1.000   Min.   :1148733   Min.   :1149   1-LH:396   1-200 :198  
- NA's:792       1st Qu.: 6.000   1st Qu.:1384190   1st Qu.:1384   2-RH:396   2-300 :198  
-                Median : 8.000   Median :1528991   Median :1529              3-500 :198  
-                Mean   : 7.629   Mean   :1522435   Mean   :1522              4-1000:198  
-                3rd Qu.: 9.000   3rd Qu.:1651057   3rd Qu.:1651                          
-                Max.   :13.000   Max.   :1934972   Max.   :1935                          
-                NA's   :80       NA's   :128       NA's   :128                           
-     M50Lat          M100Lat        M50LatCorr      M100LatCorr        dB.SL        M100compCase   
- Min.   : 52.00   Min.   :104.0   Min.   : 31.00   Min.   : 76.0   Min.   : 0.00   Min.   :0.0000  
- 1st Qu.: 82.00   1st Qu.:132.0   1st Qu.: 57.00   1st Qu.:107.0   1st Qu.:12.00   1st Qu.:0.0000  
- Median : 91.00   Median :150.0   Median : 66.00   Median :125.5   Median :20.00   Median :1.0000  
- Mean   : 94.88   Mean   :157.6   Mean   : 70.68   Mean   :133.0   Mean   :20.26   Mean   :0.6742  
- 3rd Qu.:106.00   3rd Qu.:184.0   3rd Qu.: 82.00   3rd Qu.:159.0   3rd Qu.:28.00   3rd Qu.:1.0000  
- Max.   :188.00   Max.   :220.0   Max.   :167.00   Max.   :197.0   Max.   :59.90   Max.   :1.0000  
- NA's   :370      NA's   :258     NA's   :370      NA's   :258     NA's   :16                      
-  M50compCase             cutAge       breakAge  
- Min.   :0.0000   12-and-over:368   (9,10] :128  
- 1st Qu.:0.0000   under-12   :424   [7,8]  :120  
- Median :1.0000                     (11,12]:112  
- Mean   :0.5328                     (10,11]:104  
- 3rd Qu.:1.0000                     (14,15]: 72  
- Max.   :1.0000                     (8,9]  : 72  
-                                    (Other):184  
+     Subject      Site     Exclusions       DOS           DOB           Age       
+ 3002-102:  8   CHOP:376   no:792     2/23/12 : 24   3/23/02: 16   Min.   : 7.00  
+ 3003-101:  8   UCSF:416              10/18/13: 16   4/26/98: 16   1st Qu.:10.00  
+ 3003-102:  8                         11/18/11: 16   6/5/06 : 16   Median :11.00  
+ 3005-101:  8                         11/19/12: 16   8/22/03: 16   Mean   :11.49  
+ 3011-101:  8                         11/8/13 : 16   1/15/01:  8   3rd Qu.:14.00  
+ 3014-101:  8                         2/18/13 : 16   1/16/04:  8   Max.   :17.00  
+ (Other) :744                         (Other) :688   (Other):712                  
+    Age_Calc       AgeGroup      Gender           Handedness        Dx        Chromosome 
+ Min.   : 7.307   child:792   female:320   ambidextrous:120   control:384   16p    :408  
+ 1st Qu.: 9.953               male  :472   left        :112   proband:408   control:384  
+ Median :11.677                            right       :560                              
+ Mean   :11.958                                                                          
+ 3rd Qu.:14.216                                                                          
+ Max.   :17.151                                                                          
+                                                                                         
+          Case             Copies         ASD           NVIQ             VIQ        
+ control    :384   control    :384   control:384   Min.   : 53.00   Min.   : 54.00  
+ deletion   :280   deletion   :280   FALSE  :304   1st Qu.: 87.00   1st Qu.: 87.00  
+ duplication:128   duplication:128   TRUE   :104   Median : 96.50   Median : 98.00  
+                                                   Mean   : 95.89   Mean   : 96.38  
+                                                   3rd Qu.:105.00   3rd Qu.:107.00  
+                                                   Max.   :136.00   Max.   :147.00  
+                                                   NA's   :40       NA's   :40      
+     CELF.4         SRS_parent    SRS_adult          CTOPP             ICV2        
+ Min.   : 40.00   Min.   :  0.0   Mode:logical   Min.   : 1.000   Min.   :1148733  
+ 1st Qu.: 79.00   1st Qu.: 12.0   NA's:792       1st Qu.: 6.000   1st Qu.:1384190  
+ Median : 97.00   Median : 31.5                  Median : 8.000   Median :1528991  
+ Mean   : 91.91   Mean   : 46.9                  Mean   : 7.629   Mean   :1522435  
+ 3rd Qu.:108.00   3rd Qu.: 77.0                  3rd Qu.: 9.000   3rd Qu.:1651057  
+ Max.   :132.00   Max.   :145.0                  Max.   :13.000   Max.   :1934972  
+ NA's   :96       NA's   :40                     NA's   :80       NA's   :128      
+     cmICV        Hem          Cond         M50Lat          M100Lat        M50LatCorr    
+ Min.   :1149   1-LH:396   1-200 :198   Min.   : 52.00   Min.   :104.0   Min.   : 31.00  
+ 1st Qu.:1384   2-RH:396   2-300 :198   1st Qu.: 82.00   1st Qu.:132.0   1st Qu.: 57.00  
+ Median :1529              3-500 :198   Median : 91.00   Median :150.0   Median : 66.00  
+ Mean   :1522              4-1000:198   Mean   : 94.88   Mean   :157.6   Mean   : 70.68  
+ 3rd Qu.:1651                           3rd Qu.:106.00   3rd Qu.:184.0   3rd Qu.: 82.00  
+ Max.   :1935                           Max.   :188.00   Max.   :220.0   Max.   :167.00  
+ NA's   :128                            NA's   :370      NA's   :258     NA's   :370     
+  M100LatCorr        dB.SL        M100compCase     M50compCase             cutAge   
+ Min.   : 76.0   Min.   : 0.00   Min.   :0.0000   Min.   :0.0000   12-and-over:368  
+ 1st Qu.:107.0   1st Qu.:12.00   1st Qu.:0.0000   1st Qu.:0.0000   under-12   :424  
+ Median :125.5   Median :20.00   Median :1.0000   Median :1.0000                    
+ Mean   :133.0   Mean   :20.26   Mean   :0.6742   Mean   :0.5328                    
+ 3rd Qu.:159.0   3rd Qu.:28.00   3rd Qu.:1.0000   3rd Qu.:1.0000                    
+ Max.   :197.0   Max.   :59.90   Max.   :1.0000   Max.   :1.0000                    
+ NA's   :258     NA's   :16                                                         
+    breakAge  
+ (9,10] :128  
+ [7,8]  :120  
+ (11,12]:112  
+ (10,11]:104  
+ (14,15]: 72  
+ (8,9]  : 72  
+ (Other):184  
 
 > dplyr::glimpse(child.study.data)
 Observations: 792
 Variables:
-$ Subject      (fctr) 3002-102, 3002-102, 3002-102, 3002-102, 3002-102, 3002-102, 3002-102, 3002-1...
-$ Site         (fctr) UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF...
-$ Exclusions   (fctr) no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, ...
-$ DOS          (fctr) 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/1...
-$ DOB          (fctr) 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 3/3/...
-$ Age          (int) 10, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 10, 10, 10, 1...
-$ Age_Calc     (dbl) 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, 12.721, 12.72...
-$ AgeGroup     (fctr) child, child, child, child, child, child, child, child, child, child, child,...
-$ Gender       (fctr) male, male, male, male, male, male, male, male, male, male, male, male, male...
-$ Handedness   (fctr) right, right, right, right, right, right, right, right, right, right, right,...
-$ Dx           (fctr) proband, proband, proband, proband, proband, proband, proband, proband, prob...
-$ Chromosome   (fctr) 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 1...
-$ Case         (fctr) duplication, duplication, duplication, duplication, duplication, duplication...
-$ Copies       (fctr) duplication, duplication, duplication, duplication, duplication, duplication...
-$ ASD          (fctr) FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,...
-$ NVIQ         (int) 77, 77, 77, 77, 77, 77, 77, 77, 102, 102, 102, 102, 102, 102, 102, 102, 97, 9...
-$ VIQ          (int) 86, 86, 86, 86, 86, 86, 86, 86, 106, 106, 106, 106, 106, 106, 106, 106, 100, ...
-$ CELF.4       (int) 75, 75, 75, 75, 75, 75, 75, 75, 88, 88, 88, 88, 88, 88, 88, 88, 100, 100, 100...
-$ SRS_parent   (int) 145, 145, 145, 145, 145, 145, 145, 145, 6, 6, 6, 6, 6, 6, 6, 6, 9, 9, 9, 9, 9...
-$ SRS_adult    (lgl) NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
-$ CTOPP        (int) 6, 6, 6, 6, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,...
-$ ICV2         (dbl) 1422314, 1422314, 1422314, 1422314, 1422314, 1422314, 1422314, 1422314, 17173...
-$ cmICV        (dbl) 1422.314, 1422.314, 1422.314, 1422.314, 1422.314, 1422.314, 1422.314, 1422.31...
-$ Hem          (fctr) 1-LH, 1-LH, 1-LH, 1-LH, 2-RH, 2-RH, 2-RH, 2-RH, 1-LH, 1-LH, 1-LH, 1-LH, 2-RH...
-$ Cond         (fctr) 1-200, 2-300, 3-500, 4-1000, 1-200, 2-300, 3-500, 4-1000, 1-200, 2-300, 3-50...
-$ M50Lat       (int) 120, NA, NA, NA, NA, NA, NA, 116, NA, 86, NA, 86, 82, 80, NA, 80, 90, 80, 80,...
-$ M100Lat      (int) NA, NA, NA, NA, 162, 148, 146, 166, 180, 176, NA, 170, 138, 130, NA, 118, 206...
-$ M50LatCorr   (int) 92, NA, NA, NA, NA, NA, NA, 88, NA, 58, NA, 58, 54, 52, NA, 52, 62, 52, 52, 5...
-$ M100LatCorr  (int) NA, NA, NA, NA, 134, 120, 118, 138, 152, 148, NA, 142, 110, 102, NA, 90, 178,...
-$ dB.SL        (dbl) 25, 25, 25, 25, 25, 25, 25, 25, 24, 24, 24, 24, 24, 24, 24, 24, 32, 32, 32, 3...
-$ M100compCase (int) 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1,...
-$ M50compCase  (int) 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1,...
-$ cutAge       (fctr) under-12, under-12, under-12, under-12, under-12, under-12, under-12, under-...
-$ breakAge     (fctr) (9,10], (9,10], (9,10], (9,10], (9,10], (9,10], (9,10], (9,10], (11,12], (11...
+$ Subject      (fctr) 3002-102, 3002-102, 3002-102, 3002-102, 3002-102, 3002-102, 300...
+$ Site         (fctr) UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCSF, UCS...
+$ Exclusions   (fctr) no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no,...
+$ DOS          (fctr) 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, 11/4/11, ...
+$ DOB          (fctr) 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, 1/24/01, ...
+$ Age          (int) 10, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, ...
+$ Age_Calc     (dbl) 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, 10.784, ...
+$ AgeGroup     (fctr) child, child, child, child, child, child, child, child, child, ...
+$ Gender       (fctr) male, male, male, male, male, male, male, male, male, male, mal...
+$ Handedness   (fctr) right, right, right, right, right, right, right, right, right, ...
+$ Dx           (fctr) proband, proband, proband, proband, proband, proband, proband, ...
+$ Chromosome   (fctr) 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p, 16p...
+$ Case         (fctr) duplication, duplication, duplication, duplication, duplication...
+$ Copies       (fctr) duplication, duplication, duplication, duplication, duplication...
+$ ASD          (fctr) FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...
+$ NVIQ         (int) 77, 77, 77, 77, 77, 77, 77, 77, 102, 102, 102, 102, 102, 102, 10...
+$ VIQ          (int) 86, 86, 86, 86, 86, 86, 86, 86, 106, 106, 106, 106, 106, 106, 10...
+$ CELF.4       (int) 75, 75, 75, 75, 75, 75, 75, 75, 88, 88, 88, 88, 88, 88, 88, 88, ...
+$ SRS_parent   (int) 145, 145, 145, 145, 145, 145, 145, 145, 6, 6, 6, 6, 6, 6, 6, 6, ...
+$ SRS_adult    (lgl) NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ CTOPP        (int) 6, 6, 6, 6, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 6, 6...
+$ ICV2         (dbl) 1422314, 1422314, 1422314, 1422314, 1422314, 1422314, 1422314, 1...
+$ cmICV        (dbl) 1422.314, 1422.314, 1422.314, 1422.314, 1422.314, 1422.314, 1422...
+$ Hem          (fctr) 1-LH, 1-LH, 1-LH, 1-LH, 2-RH, 2-RH, 2-RH, 2-RH, 1-LH, 1-LH, 1-L...
+$ Cond         (fctr) 1-200, 2-300, 3-500, 4-1000, 1-200, 2-300, 3-500, 4-1000, 1-200...
+$ M50Lat       (int) 120, NA, NA, NA, NA, NA, NA, 116, NA, 86, NA, 86, 82, 80, NA, 80...
+$ M100Lat      (int) NA, NA, NA, NA, 162, 148, 146, 166, 180, 176, NA, 170, 138, 130,...
+$ M50LatCorr   (int) 92, NA, NA, NA, NA, NA, NA, 88, NA, 58, NA, 58, 54, 52, NA, 52, ...
+$ M100LatCorr  (int) NA, NA, NA, NA, 134, 120, 118, 138, 152, 148, NA, 142, 110, 102,...
+$ dB.SL        (dbl) 25, 25, 25, 25, 25, 25, 25, 25, 24, 24, 24, 24, 24, 24, 24, 24, ...
+$ M100compCase (int) 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0...
+$ M50compCase  (int) 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1...
+$ cutAge       (fctr) under-12, under-12, under-12, under-12, under-12, under-12, und...
+$ breakAge     (fctr) (9,10], (9,10], (9,10], (9,10], (9,10], (9,10], (9,10], (9,10],...
 
 > # density estimate for each Case
 > 
@@ -321,26 +336,56 @@ F-statistic: 158.4 on 1 and 532 DF,  p-value: < 2.2e-16
 > dplyr::glimpse(lat.age.model.fortify)
 Observations: 534
 Variables:
-$ M100LatCorr (int) 134, 120, 118, 138, 152, 148, 142, 110, 102, 90, 178, 186, 186, 166, 109, 123,...
-$ Age_Calc    (dbl) 10.784, 10.784, 10.784, 10.784, 12.721, 12.721, 12.721, 12.721, 12.721, 12.721...
-$ .hat        (dbl) 0.002574877, 0.002574877, 0.002574877, 0.002574877, 0.001892018, 0.001892018, ...
-$ .sigma      (dbl) 27.10488, 27.09019, 27.08698, 27.10656, 27.09253, 27.09768, 27.10331, 27.09101...
-$ .cooksd     (dbl) 1.143346e-04, 8.578712e-04, 1.020554e-03, 2.893787e-05, 5.431016e-04, 3.516763...
-$ .fitted     (dbl) 142.0497, 142.0497, 142.0497, 142.0497, 131.5193, 131.5193, 131.5193, 131.5193...
-$ .resid      (dbl) -8.049723, -22.049723, -24.049723, -4.049723, 20.480733, 16.480733, 10.480733,...
-$ .stdresid   (dbl) -0.29762252, -0.81524468, -0.88919070, -0.14973047, 0.75697531, 0.60913386, 0....
+$ M100LatCorr (int) 134, 120, 118, 138, 152, 148, 142, 110, 102, 90, 178, 186, 186, 1...
+$ Age_Calc    (dbl) 10.784, 10.784, 10.784, 10.784, 12.721, 12.721, 12.721, 12.721, 1...
+$ .hat        (dbl) 0.002574877, 0.002574877, 0.002574877, 0.002574877, 0.001892018, ...
+$ .sigma      (dbl) 27.10488, 27.09019, 27.08698, 27.10656, 27.09253, 27.09768, 27.10...
+$ .cooksd     (dbl) 1.143346e-04, 8.578712e-04, 1.020554e-03, 2.893787e-05, 5.431016e...
+$ .fitted     (dbl) 142.0497, 142.0497, 142.0497, 142.0497, 131.5193, 131.5193, 131.5...
+$ .resid      (dbl) -8.049723, -22.049723, -24.049723, -4.049723, 20.480733, 16.48073...
+$ .stdresid   (dbl) -0.2976225, -0.8152447, -0.8891907, -0.1497305, 0.7569753, 0.6091...
 
 > # plot distribution of residuals
 > 
 > ggplot(lat.age.model.fortify, aes(.resid)) + geom_density(fill = 'gray')
+
+> # additional diagnostics and plots with car package
+> library(car)
+
+> durbinWatsonTest(lat.age.model.fortify$.resid)
+[1] 0.7242333
+
+> outlierTest(lat.age.model)
+
+No Studentized residuals with Bonferonni p < 0.05
+Largest |rstudent|:
+     rstudent unadjusted p-value Bonferonni p
+162 -2.516761           0.012137           NA
+
+> sigmaHat(lat.age.model)
+[1] 27.08164
+
+> par(mfrow = c(1, 1))
+
+> influencePlot(lat.age.model)
+        StudRes         Hat       CookD
+162 -2.51676103 0.008391043 0.162891471
+639 -0.03528496 0.008590890 0.002324745
+
+> infIndexPlot(lat.age.model)
+
+> qqPlot(lat.age.model)
+
+> residualPlots(lat.age.model)
+           Test stat Pr(>|t|)
+Age_Calc       0.667    0.505
+Tukey test     0.667    0.504
 
 > # linear mixed effects models ---------------------------------------------
 > 
 > library(lme4)
 
 > library(multcomp)
-
-> library(car)
 
 > # internal numeric representation of the categorical predictors
 > 
@@ -490,7 +535,7 @@ Linear Hypotheses:
 2-300 - 1-200 == 0   -4.4720     1.0271  -4.354  < 1e-04 ***
 3-500 - 1-200 == 0   -8.7888     1.1908  -7.381  < 1e-04 ***
 4-1000 - 1-200 == 0 -16.5421     1.3258 -12.477  < 1e-04 ***
-3-500 - 2-300 == 0   -4.3167     1.0668  -4.046 0.000284 ***
+3-500 - 2-300 == 0   -4.3167     1.0668  -4.046 0.000325 ***
 4-1000 - 2-300 == 0 -12.0701     1.1859 -10.178  < 1e-04 ***
 4-1000 - 3-500 == 0  -7.7533     0.9878  -7.849  < 1e-04 ***
 ---
@@ -643,34 +688,34 @@ $Age_Calc
 > m100.lmm.2.fortify <- fortify(m100.lmm.2, child .... [TRUNCATED] 
 
 > head(m100.lmm.2.fortify)
-   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness      Dx Chromosome
-1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-         Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult CTOPP    ICV2    cmICV  Hem
-1 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-2 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-3 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-4 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-5 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-6 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-    Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL M100compCase M50compCase   cutAge breakAge
-1  1-200    120      NA         92          NA    25            0           1 under-12   (9,10]
-2  2-300     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-3  3-500     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-4 4-1000     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-5  1-200     NA     162         NA         134    25            1           0 under-12   (9,10]
-6  2-300     NA     148         NA         120    25            1           0 under-12   (9,10]
-   .fitted    .resid   .scresid
-1       NA        NA         NA
-2       NA        NA         NA
-3       NA        NA         NA
-4       NA        NA         NA
-5 129.7170  4.283048  0.6077238
-6 127.7057 -7.705655 -1.0933591
+   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness
+1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+       Dx Chromosome        Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult
+1 proband        16p duplication duplication FALSE   77  86     75        145        NA
+2 proband        16p duplication duplication FALSE   77  86     75        145        NA
+3 proband        16p duplication duplication FALSE   77  86     75        145        NA
+4 proband        16p duplication duplication FALSE   77  86     75        145        NA
+5 proband        16p duplication duplication FALSE   77  86     75        145        NA
+6 proband        16p duplication duplication FALSE   77  86     75        145        NA
+  CTOPP    ICV2    cmICV  Hem   Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL
+1     6 1422314 1422.314 1-LH  1-200    120      NA         92          NA    25
+2     6 1422314 1422.314 1-LH  2-300     NA      NA         NA          NA    25
+3     6 1422314 1422.314 1-LH  3-500     NA      NA         NA          NA    25
+4     6 1422314 1422.314 1-LH 4-1000     NA      NA         NA          NA    25
+5     6 1422314 1422.314 2-RH  1-200     NA     162         NA         134    25
+6     6 1422314 1422.314 2-RH  2-300     NA     148         NA         120    25
+  M100compCase M50compCase   cutAge breakAge  .fitted    .resid   .scresid
+1            0           1 under-12   (9,10]       NA        NA         NA
+2            0           0 under-12   (9,10]       NA        NA         NA
+3            0           0 under-12   (9,10]       NA        NA         NA
+4            0           0 under-12   (9,10]       NA        NA         NA
+5            1           0 under-12   (9,10] 129.7170  4.283048  0.6077238
+6            1           0 under-12   (9,10] 127.7057 -7.705655 -1.0933591
 
 > # predict new values and allowing for levels/rows not present in fit
 > 
@@ -678,34 +723,34 @@ $Age_Calc
 +   predict(m100.lmm.2, newdata = m100.lm .... [TRUNCATED] 
 
 > head(m100.lmm.2.fortify)
-   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness      Dx Chromosome
-1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right proband        16p
-         Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult CTOPP    ICV2    cmICV  Hem
-1 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-2 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-3 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-4 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 1-LH
-5 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-6 duplication duplication FALSE   77  86     75        145        NA     6 1422314 1422.314 2-RH
-    Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL M100compCase M50compCase   cutAge breakAge
-1  1-200    120      NA         92          NA    25            0           1 under-12   (9,10]
-2  2-300     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-3  3-500     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-4 4-1000     NA      NA         NA          NA    25            0           0 under-12   (9,10]
-5  1-200     NA     162         NA         134    25            1           0 under-12   (9,10]
-6  2-300     NA     148         NA         120    25            1           0 under-12   (9,10]
-   .fitted    .resid   .scresid Predicted
-1       NA        NA         NA  138.4956
-2       NA        NA         NA  136.4843
-3       NA        NA         NA  136.6216
-4       NA        NA         NA  130.1613
-5 129.7170  4.283048  0.6077238  129.7170
-6 127.7057 -7.705655 -1.0933591  127.7057
+   Subject Site Exclusions     DOS     DOB Age Age_Calc AgeGroup Gender Handedness
+1 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+2 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+3 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+4 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+5 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+6 3002-102 UCSF         no 11/4/11 1/24/01  10   10.784    child   male      right
+       Dx Chromosome        Case      Copies   ASD NVIQ VIQ CELF.4 SRS_parent SRS_adult
+1 proband        16p duplication duplication FALSE   77  86     75        145        NA
+2 proband        16p duplication duplication FALSE   77  86     75        145        NA
+3 proband        16p duplication duplication FALSE   77  86     75        145        NA
+4 proband        16p duplication duplication FALSE   77  86     75        145        NA
+5 proband        16p duplication duplication FALSE   77  86     75        145        NA
+6 proband        16p duplication duplication FALSE   77  86     75        145        NA
+  CTOPP    ICV2    cmICV  Hem   Cond M50Lat M100Lat M50LatCorr M100LatCorr dB.SL
+1     6 1422314 1422.314 1-LH  1-200    120      NA         92          NA    25
+2     6 1422314 1422.314 1-LH  2-300     NA      NA         NA          NA    25
+3     6 1422314 1422.314 1-LH  3-500     NA      NA         NA          NA    25
+4     6 1422314 1422.314 1-LH 4-1000     NA      NA         NA          NA    25
+5     6 1422314 1422.314 2-RH  1-200     NA     162         NA         134    25
+6     6 1422314 1422.314 2-RH  2-300     NA     148         NA         120    25
+  M100compCase M50compCase   cutAge breakAge  .fitted    .resid   .scresid Predicted
+1            0           1 under-12   (9,10]       NA        NA         NA  138.4956
+2            0           0 under-12   (9,10]       NA        NA         NA  136.4843
+3            0           0 under-12   (9,10]       NA        NA         NA  136.6216
+4            0           0 under-12   (9,10]       NA        NA         NA  130.1613
+5            1           0 under-12   (9,10] 129.7170  4.283048  0.6077238  129.7170
+6            1           0 under-12   (9,10] 127.7057 -7.705655 -1.0933591  127.7057
 
 > # refit latency-age relationship and plot the resulting model
 > 
@@ -782,7 +827,7 @@ Residual standard error: 14.68 on 46 degrees of freedom
 Multiple R-squared:  0.3341,	Adjusted R-squared:  0.3196 
 F-statistic: 23.08 on 1 and 46 DF,  p-value: 1.692e-05
 
------------------------------------------------------------------------------ 
+------------------------------------------------------------------- 
 Case: deletion
 
 Call:
@@ -803,7 +848,7 @@ Residual standard error: 23.47 on 33 degrees of freedom
 Multiple R-squared:  0.2921,	Adjusted R-squared:  0.2706 
 F-statistic: 13.62 on 1 and 33 DF,  p-value: 0.0008036
 
------------------------------------------------------------------------------ 
+------------------------------------------------------------------- 
 Case: duplication
 
 Call:
@@ -884,34 +929,34 @@ Source: local data frame [3 x 4]
 > vowel.data <- read.csv(file.path(source.dir, exact.path), header = TRUE)
 
 > head(vowel.data)
-   SubjectAssgn    GenID ExpAssgn Language Training TrainType    Sex Instrument InstYears InstPlay
-1 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-2 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-3 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-4 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-5 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-6 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12  current
-  EarTrain EarTrainYear Vowel VowelHeight VowelPosition  F1   F2   F3 F1.F2 F1.F3 F2.F3 BarkF2.F1
-1       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-2       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-3       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-4       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-5       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-6       no          n/a     a         low          back 768 1333 2522 0.576 0.305 0.529     3.306
-  BarkF3.F1 BarkF3.F2  Item ItemType SCGDiff logSCGDiff     RT RespNum RespNum2  absRT logAbsRT
-1     7.539     4.233 a-2-2     same       0          0 684.71       1      100 684.71 2.835507
-2     7.539     4.233 a-2-2     same       0          0 707.26       1      100 707.26 2.849579
-3     7.539     4.233 a-2-2     same       0          0 443.42       1      100 443.42 2.646815
-4     7.539     4.233 a-2-2     same       0          0 561.19       1      100 561.19 2.749110
-5     7.539     4.233 a-2-2     same       0          0 534.67       1      100 534.67 2.728086
-6     7.539     4.233 a-2-2     same       0          0 514.24       1      100 514.24 2.711166
-  ItemPair
-1      2-2
-2      2-2
-3      2-2
-4      2-2
-5      2-2
-6      2-2
+   SubjectAssgn    GenID ExpAssgn Language Training TrainType    Sex Instrument InstYears
+1 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+2 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+3 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+4 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+5 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+6 a-i-subject-1 Subject1      a-i  english      yes    formal female      piano        12
+  InstPlay EarTrain EarTrainYear Vowel VowelHeight VowelPosition  F1   F2   F3 F1.F2
+1  current       no          n/a     a         low          back 768 1333 2522 0.576
+2  current       no          n/a     a         low          back 768 1333 2522 0.576
+3  current       no          n/a     a         low          back 768 1333 2522 0.576
+4  current       no          n/a     a         low          back 768 1333 2522 0.576
+5  current       no          n/a     a         low          back 768 1333 2522 0.576
+6  current       no          n/a     a         low          back 768 1333 2522 0.576
+  F1.F3 F2.F3 BarkF2.F1 BarkF3.F1 BarkF3.F2  Item ItemType SCGDiff logSCGDiff     RT
+1 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 684.71
+2 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 707.26
+3 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 443.42
+4 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 561.19
+5 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 534.67
+6 0.305 0.529     3.306     7.539     4.233 a-2-2     same       0          0 514.24
+  RespNum RespNum2  absRT logAbsRT ItemPair
+1       1      100 684.71 2.835507      2-2
+2       1      100 707.26 2.849579      2-2
+3       1      100 443.42 2.646815      2-2
+4       1      100 561.19 2.749110      2-2
+5       1      100 534.67 2.728086      2-2
+6       1      100 514.24 2.711166      2-2
 
 > # see help(family) for more options
 > vowel.glm <- glm(RespNum ~ Vowel, binomial, data = vowel.data)
@@ -1044,7 +1089,8 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 +         binomial(cauchit), data = vowel.data)
 
 > summary(vowel.glmm)
-Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) [glmerMod
+]
  Family: binomial  ( logit )
 Formula: RespNum ~ Vowel + (Vowel | SubjectAssgn)
    Data: vowel.data
@@ -1151,7 +1197,7 @@ Fit: lmer(formula = log10(absRT) ~ Vowel * ItemPair + (1 | SubjectAssgn),
 
 Linear Hypotheses:
              Estimate Std. Error z value Pr(>|z|)  
-i - a == 0 -0.0077655  0.0036520  -2.126   0.0792 .
+i - a == 0 -0.0077655  0.0036520  -2.126   0.0796 .
 u - a == 0 -0.0004005  0.0036271  -0.110   0.9929  
 u - i == 0  0.0073651  0.0051331   1.435   0.3092  
 ---
@@ -1172,51 +1218,51 @@ Fit: lmer(formula = log10(absRT) ~ Vowel * ItemPair + (1 | SubjectAssgn),
 
 Linear Hypotheses:
                                  Estimate Std. Error z value Pr(>|z|)    
-2-square - 2-2 == 0             0.0184206  0.0060774   3.031   0.0732 .  
-23-2 - 2-2 == 0                 0.0133986  0.0060680   2.208   0.4502    
-23-23 - 2-2 == 0                0.0150183  0.0060557   2.480   0.2796    
+2-square - 2-2 == 0             0.0184206  0.0060774   3.031   0.0738 .  
+23-2 - 2-2 == 0                 0.0133986  0.0060680   2.208   0.4509    
+23-23 - 2-2 == 0                0.0150183  0.0060557   2.480   0.2789    
 23-4 - 2-2 == 0                 0.0323296  0.0060978   5.302    <0.01 ***
-23-square - 2-2 == 0            0.0182083  0.0060599   3.005   0.0793 .  
-4-2 - 2-2 == 0                  0.0210645  0.0060779   3.466   0.0188 *  
-4-4 - 2-2 == 0                  0.0123851  0.0060703   2.040   0.5698    
-4-square - 2-2 == 0             0.0209543  0.0060723   3.451   0.0198 *  
+23-square - 2-2 == 0            0.0182083  0.0060599   3.005   0.0791 .  
+4-2 - 2-2 == 0                  0.0210645  0.0060779   3.466   0.0187 *  
+4-4 - 2-2 == 0                  0.0123851  0.0060703   2.040   0.5702    
+4-square - 2-2 == 0             0.0209543  0.0060723   3.451   0.0199 *  
 square-square - 2-2 == 0        0.0062432  0.0060616   1.030   0.9905    
 23-2 - 2-square == 0           -0.0050220  0.0060837  -0.825   0.9982    
 23-23 - 2-square == 0          -0.0034023  0.0060714  -0.560   0.9999    
-23-4 - 2-square == 0            0.0139090  0.0061136   2.275   0.4059    
+23-4 - 2-square == 0            0.0139090  0.0061136   2.275   0.4057    
 23-square - 2-square == 0      -0.0002122  0.0060761  -0.035   1.0000    
 4-2 - 2-square == 0             0.0026440  0.0060937   0.434   1.0000    
 4-4 - 2-square == 0            -0.0060355  0.0060861  -0.992   0.9928    
 4-square - 2-square == 0        0.0025337  0.0060879   0.416   1.0000    
-square-square - 2-square == 0  -0.0121774  0.0060774  -2.004   0.5968    
+square-square - 2-square == 0  -0.0121774  0.0060774  -2.004   0.5963    
 23-23 - 23-2 == 0               0.0016198  0.0060622   0.267   1.0000    
 23-4 - 23-2 == 0                0.0189310  0.0061043   3.101   0.0602 .  
 23-square - 23-2 == 0           0.0048098  0.0060664   0.793   0.9987    
-4-2 - 23-2 == 0                 0.0076660  0.0060843   1.260   0.9622    
+4-2 - 23-2 == 0                 0.0076660  0.0060843   1.260   0.9623    
 4-4 - 23-2 == 0                -0.0010134  0.0060768  -0.167   1.0000    
 4-square - 23-2 == 0            0.0075558  0.0060786   1.243   0.9654    
 square-square - 23-2 == 0      -0.0071554  0.0060679  -1.179   0.9756    
-23-4 - 23-23 == 0               0.0173113  0.0060919   2.842   0.1224    
+23-4 - 23-23 == 0               0.0173113  0.0060919   2.842   0.1230    
 23-square - 23-23 == 0          0.0031900  0.0060543   0.527   1.0000    
 4-2 - 23-23 == 0                0.0060462  0.0060722   0.996   0.9926    
 4-4 - 23-23 == 0               -0.0026332  0.0060645  -0.434   1.0000    
 4-square - 23-23 == 0           0.0059360  0.0060663   0.979   0.9935    
-square-square - 23-23 == 0     -0.0087751  0.0060558  -1.449   0.9117    
-23-square - 23-4 == 0          -0.0141212  0.0060963  -2.316   0.3775    
-4-2 - 23-4 == 0                -0.0112650  0.0061141  -1.842   0.7081    
-4-4 - 23-4 == 0                -0.0199445  0.0061066  -3.266   0.0364 *  
-4-square - 23-4 == 0           -0.0113752  0.0061084  -1.862   0.6943    
+square-square - 23-23 == 0     -0.0087751  0.0060558  -1.449   0.9116    
+23-square - 23-4 == 0          -0.0141212  0.0060963  -2.316   0.3785    
+4-2 - 23-4 == 0                -0.0112650  0.0061141  -1.842   0.7077    
+4-4 - 23-4 == 0                -0.0199445  0.0061066  -3.266   0.0371 *  
+4-square - 23-4 == 0           -0.0113752  0.0061084  -1.862   0.6945    
 square-square - 23-4 == 0      -0.0260864  0.0060978  -4.278    <0.01 ***
 4-2 - 23-square == 0            0.0028562  0.0060764   0.470   1.0000    
-4-4 - 23-square == 0           -0.0058232  0.0060688  -0.960   0.9943    
+4-4 - 23-square == 0           -0.0058232  0.0060688  -0.960   0.9944    
 4-square - 23-square == 0       0.0027460  0.0060707   0.452   1.0000    
-square-square - 23-square == 0 -0.0119652  0.0060600  -1.974   0.6172    
+square-square - 23-square == 0 -0.0119652  0.0060600  -1.974   0.6170    
 4-4 - 4-2 == 0                 -0.0086794  0.0060867  -1.426   0.9194    
 4-square - 4-2 == 0            -0.0001102  0.0060887  -0.018   1.0000    
-square-square - 4-2 == 0       -0.0148214  0.0060779  -2.439   0.3023    
+square-square - 4-2 == 0       -0.0148214  0.0060779  -2.439   0.3028    
 4-square - 4-4 == 0             0.0085692  0.0060810   1.409   0.9248    
 square-square - 4-4 == 0       -0.0061419  0.0060704  -1.012   0.9917    
-square-square - 4-square == 0  -0.0147111  0.0060723  -2.423   0.3114    
+square-square - 4-square == 0  -0.0147111  0.0060723  -2.423   0.3130    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 (Adjusted p values reported -- single-step method)
@@ -1237,11 +1283,11 @@ Linear Hypotheses:
                                Estimate Std. Error z value Pr(>|z|)    
 2-square - 2-2 == 0            -5.61454    0.17048 -32.934   <0.001 ***
 23-2 - 2-2 == 0                -2.62096    0.15096 -17.362   <0.001 ***
-23-23 - 2-2 == 0               -0.31014    0.18125  -1.711   0.7700    
+23-23 - 2-2 == 0               -0.31014    0.18125  -1.711   0.7706    
 23-4 - 2-2 == 0                -3.85556    0.15187 -25.386   <0.001 ***
 23-square - 2-2 == 0           -2.52559    0.15109 -16.715   <0.001 ***
 4-2 - 2-2 == 0                 -2.90344    0.15054 -19.287   <0.001 ***
-4-4 - 2-2 == 0                 -0.34032    0.18033  -1.887   0.6541    
+4-4 - 2-2 == 0                 -0.34032    0.18033  -1.887   0.6536    
 4-square - 2-2 == 0            -3.00976    0.15038 -20.015   <0.001 ***
 square-square - 2-2 == 0        0.19674    0.20115   0.978   0.9924    
 23-2 - 2-square == 0            2.99358    0.11733  25.514   <0.001 ***
@@ -1254,8 +1300,8 @@ square-square - 2-2 == 0        0.19674    0.20115   0.978   0.9924
 square-square - 2-square == 0   5.81128    0.18012  32.263   <0.001 ***
 23-23 - 23-2 == 0               2.31083    0.13603  16.988   <0.001 ***
 23-4 - 23-2 == 0               -1.23460    0.08898 -13.876   <0.001 ***
-23-square - 23-2 == 0           0.09537    0.08907   1.071   0.9855    
-4-2 - 23-2 == 0                -0.28248    0.08756  -3.226   0.0363 *  
+23-square - 23-2 == 0           0.09537    0.08907   1.071   0.9856    
+4-2 - 23-2 == 0                -0.28248    0.08756  -3.226   0.0374 *  
 4-4 - 23-2 == 0                 2.28064    0.13487  16.910   <0.001 ***
 4-square - 23-2 == 0           -0.38880    0.08719  -4.459   <0.001 ***
 square-square - 23-2 == 0       2.81770    0.16179  17.416   <0.001 ***
@@ -1264,7 +1310,7 @@ square-square - 23-2 == 0       2.81770    0.16179  17.416   <0.001 ***
 4-2 - 23-23 == 0               -2.59330    0.13553 -19.135   <0.001 ***
 4-4 - 23-23 == 0               -0.03018    0.16823  -0.179   1.0000    
 4-square - 23-23 == 0          -2.69962    0.13535 -19.946   <0.001 ***
-square-square - 23-23 == 0      0.50688    0.19031   2.663   0.1716    
+square-square - 23-23 == 0      0.50688    0.19031   2.663   0.1712    
 23-square - 23-4 == 0           1.32997    0.08949  14.861   <0.001 ***
 4-2 - 23-4 == 0                 0.95212    0.08775  10.851   <0.001 ***
 4-4 - 23-4 == 0                 3.51524    0.13582  25.881   <0.001 ***
@@ -1275,10 +1321,10 @@ square-square - 23-4 == 0       4.05230    0.16265  24.914   <0.001 ***
 4-square - 23-square == 0      -0.48417    0.08766  -5.523   <0.001 ***
 square-square - 23-square == 0  2.72233    0.16193  16.812   <0.001 ***
 4-4 - 4-2 == 0                  2.56312    0.13436  19.076   <0.001 ***
-4-square - 4-2 == 0            -0.10632    0.08605  -1.236   0.9620    
+4-square - 4-2 == 0            -0.10632    0.08605  -1.236   0.9621    
 square-square - 4-2 == 0        3.10018    0.16138  19.211   <0.001 ***
 4-square - 4-4 == 0            -2.66944    0.13418 -19.894   <0.001 ***
-square-square - 4-4 == 0        0.53706    0.18948   2.834   0.1130    
+square-square - 4-4 == 0        0.53706    0.18948   2.834   0.1127    
 square-square - 4-square == 0   3.20650    0.16124  19.886   <0.001 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
@@ -1340,106 +1386,206 @@ $ItemPair
 
 > # notice the similarities to the Python example
 > design.mtx
-   (Intercept) Casedeletion Caseduplication Age_Calc Casedeletion:Age_Calc Caseduplication:Age_Calc
-1            1            0               1   10.784                 0.000                   10.784
-2            1            1               0   12.721                12.721                    0.000
-3            1            1               0   10.847                10.847                    0.000
-4            1            1               0   16.342                16.342                    0.000
-5            1            1               0    8.945                 8.945                    0.000
-6            1            1               0   17.030                17.030                    0.000
-7            1            0               1   14.948                 0.000                   14.948
-8            1            0               1   10.247                 0.000                   10.247
-9            1            1               0    9.126                 9.126                    0.000
-10           1            1               0   10.090                10.090                    0.000
-11           1            1               0   12.567                12.567                    0.000
-12           1            0               1    9.644                 0.000                    9.644
-13           1            1               0   12.414                12.414                    0.000
-14           1            0               1   13.986                 0.000                   13.986
-15           1            0               1   11.836                 0.000                   11.836
-16           1            0               1   11.247                 0.000                   11.247
-17           1            1               0   12.181                12.181                    0.000
-18           1            1               0    7.984                 7.984                    0.000
-19           1            1               0    8.986                 8.986                    0.000
-20           1            1               0   14.882                14.882                    0.000
-21           1            0               1    7.384                 0.000                    7.384
-22           1            1               0   12.499                12.499                    0.000
-23           1            1               0    8.027                 8.027                    0.000
-24           1            1               0    8.847                 8.847                    0.000
-25           1            1               0   13.721                13.721                    0.000
-26           1            1               0   11.014                11.014                    0.000
-27           1            1               0    9.918                 9.918                    0.000
-28           1            1               0    8.553                 8.553                    0.000
-29           1            1               0    9.570                 9.570                    0.000
-30           1            0               1    9.416                 0.000                    9.416
-31           1            1               0   11.501                11.501                    0.000
-32           1            1               0   16.189                16.189                    0.000
-33           1            0               1   11.784                 0.000                   11.784
-34           1            1               0   15.490                15.490                    0.000
-35           1            1               0   15.490                15.490                    0.000
-36           1            0               1   10.937                 0.000                   10.937
-37           1            0               1   10.296                 0.000                   10.296
-38           1            1               0    8.123                 8.123                    0.000
-39           1            1               0   12.296                12.296                    0.000
-40           1            1               0   10.290                10.290                    0.000
-41           1            0               1   16.923                 0.000                   16.923
-42           1            1               0    9.953                 9.953                    0.000
-43           1            1               0    8.589                 8.589                    0.000
-44           1            1               0    9.627                 9.627                    0.000
-45           1            1               0   11.773                11.773                    0.000
-46           1            1               0   12.408                12.408                    0.000
-47           1            1               0    8.036                 8.036                    0.000
-48           1            0               1   13.570                 0.000                   13.570
-49           1            0               1   11.203                 0.000                   11.203
-50           1            1               0   10.156                10.156                    0.000
-51           1            0               1    8.984                 0.000                    8.984
-52           1            0               0   13.814                 0.000                    0.000
-53           1            0               0   14.386                 0.000                    0.000
-54           1            0               0    8.014                 0.000                    0.000
-55           1            0               0   13.595                 0.000                    0.000
-56           1            0               0   11.425                 0.000                    0.000
-57           1            0               0   11.677                 0.000                    0.000
-58           1            0               0   14.915                 0.000                    0.000
-59           1            0               0   10.819                 0.000                    0.000
-60           1            0               0   11.784                 0.000                    0.000
-61           1            0               0   14.529                 0.000                    0.000
-62           1            0               0   15.674                 0.000                    0.000
-63           1            0               0    8.863                 0.000                    0.000
-64           1            0               0   13.715                 0.000                    0.000
-65           1            0               0   10.751                 0.000                    0.000
-66           1            0               0   11.307                 0.000                    0.000
-67           1            0               0   14.748                 0.000                    0.000
-68           1            0               0   13.060                 0.000                    0.000
-69           1            0               0   10.403                 0.000                    0.000
-70           1            0               0   17.151                 0.000                    0.000
-71           1            0               0   12.504                 0.000                    0.000
-72           1            0               0   16.332                 0.000                    0.000
-73           1            0               0   15.400                 0.000                    0.000
-74           1            0               0   15.164                 0.000                    0.000
-75           1            0               0    7.940                 0.000                    0.000
-76           1            0               0   11.603                 0.000                    0.000
-77           1            0               0   11.438                 0.000                    0.000
-78           1            0               0   12.184                 0.000                    0.000
-79           1            0               0    7.307                 0.000                    0.000
-80           1            0               0    7.307                 0.000                    0.000
-81           1            0               0   10.203                 0.000                    0.000
-82           1            0               0   16.441                 0.000                    0.000
-83           1            0               0   15.129                 0.000                    0.000
-84           1            0               0    9.482                 0.000                    0.000
-85           1            0               0   16.934                 0.000                    0.000
-86           1            0               0   10.805                 0.000                    0.000
-87           1            0               0   12.789                 0.000                    0.000
-88           1            0               0   15.438                 0.000                    0.000
-89           1            0               0   12.227                 0.000                    0.000
-90           1            0               0   16.099                 0.000                    0.000
-91           1            0               0   14.252                 0.000                    0.000
-92           1            0               0   16.389                 0.000                    0.000
-93           1            0               0   10.534                 0.000                    0.000
-94           1            0               0   12.600                 0.000                    0.000
-95           1            0               0   10.586                 0.000                    0.000
-96           1            0               0   12.663                 0.000                    0.000
-97           1            0               0   14.216                 0.000                    0.000
-98           1            0               0    8.942                 0.000                    0.000
-99           1            0               0   10.964                 0.000                    0.000
+   (Intercept) Casedeletion Caseduplication Age_Calc Casedeletion:Age_Calc
+1            1            0               1   10.784                 0.000
+2            1            1               0   12.721                12.721
+3            1            1               0   10.847                10.847
+4            1            1               0   16.342                16.342
+5            1            1               0    8.945                 8.945
+6            1            1               0   17.030                17.030
+7            1            0               1   14.948                 0.000
+8            1            0               1   10.247                 0.000
+9            1            1               0    9.126                 9.126
+10           1            1               0   10.090                10.090
+11           1            1               0   12.567                12.567
+12           1            0               1    9.644                 0.000
+13           1            1               0   12.414                12.414
+14           1            0               1   13.986                 0.000
+15           1            0               1   11.836                 0.000
+16           1            0               1   11.247                 0.000
+17           1            1               0   12.181                12.181
+18           1            1               0    7.984                 7.984
+19           1            1               0    8.986                 8.986
+20           1            1               0   14.882                14.882
+21           1            0               1    7.384                 0.000
+22           1            1               0   12.499                12.499
+23           1            1               0    8.027                 8.027
+24           1            1               0    8.847                 8.847
+25           1            1               0   13.721                13.721
+26           1            1               0   11.014                11.014
+27           1            1               0    9.918                 9.918
+28           1            1               0    8.553                 8.553
+29           1            1               0    9.570                 9.570
+30           1            0               1    9.416                 0.000
+31           1            1               0   11.501                11.501
+32           1            1               0   16.189                16.189
+33           1            0               1   11.784                 0.000
+34           1            1               0   15.490                15.490
+35           1            1               0   15.490                15.490
+36           1            0               1   10.937                 0.000
+37           1            0               1   10.296                 0.000
+38           1            1               0    8.123                 8.123
+39           1            1               0   12.296                12.296
+40           1            1               0   10.290                10.290
+41           1            0               1   16.923                 0.000
+42           1            1               0    9.953                 9.953
+43           1            1               0    8.589                 8.589
+44           1            1               0    9.627                 9.627
+45           1            1               0   11.773                11.773
+46           1            1               0   12.408                12.408
+47           1            1               0    8.036                 8.036
+48           1            0               1   13.570                 0.000
+49           1            0               1   11.203                 0.000
+50           1            1               0   10.156                10.156
+51           1            0               1    8.984                 0.000
+52           1            0               0   13.814                 0.000
+53           1            0               0   14.386                 0.000
+54           1            0               0    8.014                 0.000
+55           1            0               0   13.595                 0.000
+56           1            0               0   11.425                 0.000
+57           1            0               0   11.677                 0.000
+58           1            0               0   14.915                 0.000
+59           1            0               0   10.819                 0.000
+60           1            0               0   11.784                 0.000
+61           1            0               0   14.529                 0.000
+62           1            0               0   15.674                 0.000
+63           1            0               0    8.863                 0.000
+64           1            0               0   13.715                 0.000
+65           1            0               0   10.751                 0.000
+66           1            0               0   11.307                 0.000
+67           1            0               0   14.748                 0.000
+68           1            0               0   13.060                 0.000
+69           1            0               0   10.403                 0.000
+70           1            0               0   17.151                 0.000
+71           1            0               0   12.504                 0.000
+72           1            0               0   16.332                 0.000
+73           1            0               0   15.400                 0.000
+74           1            0               0   15.164                 0.000
+75           1            0               0    7.940                 0.000
+76           1            0               0   11.603                 0.000
+77           1            0               0   11.438                 0.000
+78           1            0               0   12.184                 0.000
+79           1            0               0    7.307                 0.000
+80           1            0               0    7.307                 0.000
+81           1            0               0   10.203                 0.000
+82           1            0               0   16.441                 0.000
+83           1            0               0   15.129                 0.000
+84           1            0               0    9.482                 0.000
+85           1            0               0   16.934                 0.000
+86           1            0               0   10.805                 0.000
+87           1            0               0   12.789                 0.000
+88           1            0               0   15.438                 0.000
+89           1            0               0   12.227                 0.000
+90           1            0               0   16.099                 0.000
+91           1            0               0   14.252                 0.000
+92           1            0               0   16.389                 0.000
+93           1            0               0   10.534                 0.000
+94           1            0               0   12.600                 0.000
+95           1            0               0   10.586                 0.000
+96           1            0               0   12.663                 0.000
+97           1            0               0   14.216                 0.000
+98           1            0               0    8.942                 0.000
+99           1            0               0   10.964                 0.000
+   Caseduplication:Age_Calc
+1                    10.784
+2                     0.000
+3                     0.000
+4                     0.000
+5                     0.000
+6                     0.000
+7                    14.948
+8                    10.247
+9                     0.000
+10                    0.000
+11                    0.000
+12                    9.644
+13                    0.000
+14                   13.986
+15                   11.836
+16                   11.247
+17                    0.000
+18                    0.000
+19                    0.000
+20                    0.000
+21                    7.384
+22                    0.000
+23                    0.000
+24                    0.000
+25                    0.000
+26                    0.000
+27                    0.000
+28                    0.000
+29                    0.000
+30                    9.416
+31                    0.000
+32                    0.000
+33                   11.784
+34                    0.000
+35                    0.000
+36                   10.937
+37                   10.296
+38                    0.000
+39                    0.000
+40                    0.000
+41                   16.923
+42                    0.000
+43                    0.000
+44                    0.000
+45                    0.000
+46                    0.000
+47                    0.000
+48                   13.570
+49                   11.203
+50                    0.000
+51                    8.984
+52                    0.000
+53                    0.000
+54                    0.000
+55                    0.000
+56                    0.000
+57                    0.000
+58                    0.000
+59                    0.000
+60                    0.000
+61                    0.000
+62                    0.000
+63                    0.000
+64                    0.000
+65                    0.000
+66                    0.000
+67                    0.000
+68                    0.000
+69                    0.000
+70                    0.000
+71                    0.000
+72                    0.000
+73                    0.000
+74                    0.000
+75                    0.000
+76                    0.000
+77                    0.000
+78                    0.000
+79                    0.000
+80                    0.000
+81                    0.000
+82                    0.000
+83                    0.000
+84                    0.000
+85                    0.000
+86                    0.000
+87                    0.000
+88                    0.000
+89                    0.000
+90                    0.000
+91                    0.000
+92                    0.000
+93                    0.000
+94                    0.000
+95                    0.000
+96                    0.000
+97                    0.000
+98                    0.000
+99                    0.000
 attr(,"assign")
 [1] 0 1 1 2 3 3
 attr(,"contrasts")
