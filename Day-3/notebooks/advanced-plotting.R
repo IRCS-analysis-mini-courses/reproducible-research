@@ -18,6 +18,49 @@ cbPalette <-
 
 # base R with customization -----------------------------------------------
 
+# see help(par) on how to set base styles
+# and the R reference card
+
+# tutorial based on
+# http://flowingdata.com/2012/06/05/how-to-draw-in-r-and-make-custom-plots/
+
+# quick rundown:
+# mar: number of lines of margin on each side
+# oma: size of outer margins in lines of text
+# xpd: clipping parameter
+# yaxs: style of y axis
+# mgp: margin line for axis title, axis labels, axis line
+# las: style of axis labels
+# lend: line end style
+
+
+# newspaper background
+par(mar = c(4, 4, 3, 1), oma = c(0,0,0,0), xpd = FALSE, xaxs = "r", 
+    yaxs = "i", mgp = c(2.1,.6,0), las = 1, lend = 1)
+
+plot(col1 ~ col5, data = plot.df, ylim = c(60, 110),
+     type = "l", bty = "l", las = 1, 
+     main = "Column 1 vs. Column 5", 
+     xlab = "", ylab = expression(bold("Index")), family = "Helvetica", 
+     cex.axis = 0.8, cex.lab = 0.8, asp = 1/2)
+
+grid(NA, NULL, col = "black", lty = "dotted", lwd = 0.3)
+
+# Feltron style
+
+par(bg = "#36394A", mar = c(5, 4, 3, 2), oma = c(0,0,0,0), 
+    xpd = FALSE, xaxs = "r", yaxs = "i", mgp = c(2.8,0.3,0.5), 
+    col.lab = "white", col.axis = "white", col.main = "white", 
+    font.main = 1, cex.main = 0.8, cex.axis = 0.8, cex.lab = 0.8, 
+    family = "Helvetica", lend = 1, tck = 0)
+
+plot(x = rnorm(n = 200, mean = 55, sd = 14), 
+     y = rnorm(n = 200, mean = 1000, sd = 12),
+     type = "p", bty = "n", las = 1, asp = 1/2, col = 'yellow',
+     main = "THESE RANDOM NUMBERS ARE PRETTY, ARE THEY NOT?", 
+     xlab = "", ylab ="")
+
+
 
 
 
@@ -307,3 +350,49 @@ ggsave(filename = '~/GitHub/reproducible-research/Day-3/datasets/goth-tiff.tiff'
 ggsave(filename = '~/GitHub/reproducible-research/Day-3/datasets/goth-tex.tex',
        plot = goth.model, width = 10, height = 10, units = 'in', dpi = 600)
 
+# feltron style theme with large facets and bold headings
+
+feltron_theme <- function() {
+
+color.background = '#36394A'
+color.grid.major = '#000000'
+color.axis.text = 'white'
+color.axis.title = 'white'
+color.title = 'white'
+
+# create base for plots
+theme_bw(base_size = 15) +
+  
+  # make background blue
+  theme(panel.background = element_rect(fill = color.background, 
+                                      color = color.background)) +
+  theme(plot.background = element_rect(fill = color.background, 
+                                     color = color.background)) +
+  theme(panel.border = element_rect(color = color.background)) +
+  
+  # format grid 
+  theme(panel.grid.major = element_blank()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(axis.ticks = element_blank()) +
+  
+  # Format the legend
+  theme(legend.position = "bottom") +
+  theme(legend.background = element_rect(fill=color.background)) +
+  theme(legend.text = element_text(size = 15, color=color.axis.title,
+                                   face = 'bold')) +
+  theme(legend.title = element_blank()) + 
+  
+  # Set title and axis labels, and format these and tick marks
+  theme(plot.title = element_text(color = color.title, 
+                                  size = 15, vjust = 1.25)) +
+  theme(axis.text.x = element_text(size = 15,color = color.axis.text)) +
+  theme(axis.text.y = element_text(size = 15,color = color.axis.text)) +
+  theme(axis.title.x = element_text(size = 15,color = color.axis.title, vjust=0)) +
+  theme(axis.title.y = element_text(size = 15,color = color.axis.title, vjust=1.25)) + 
+  
+  # format the facet headings
+  theme(strip.text = element_text(face = 'bold', size = rel(1.5),
+                                  color = color.axis.text),
+        strip.background = element_rect(fill = color.background, 
+                                      colour = color.background, size = 1))
+}
