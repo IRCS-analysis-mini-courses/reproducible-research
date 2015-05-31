@@ -4,6 +4,11 @@
 # introduction to ggplot
 
 
+target.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
+target.file <- 'grouping-plotting-data-r-examples.txt'
+sink(file = file.path(target.dir, target.file))
+
+
 # grouping data -----------------------------------------------------------
 
 # will use both plyr and dplyr
@@ -30,6 +35,8 @@ head(plot.df)
 # uses form y ~ x
 # scatter plot by default
 plot(col1 ~ col5, data = plot.df)
+abline(lm(col1 ~ col5, data = plot.df), col = 'red', lwd = 1.3)
+
 plot(col1 ~ col5, data = plot.df, type = 'l')
 
 
@@ -81,7 +88,7 @@ head(plot.df)
 
 summary(plot.df)
 str(plot.df)
-dplyr::glimpse(plot.df)
+glimpse(plot.df)
 
 # here is a good chance to introduce various additional summaries
 
@@ -131,6 +138,7 @@ head(plot.df)
 # notice that the order of columns and rows is different
 
 plot.df.xtabs <- xtabs( ~ col3Cut + Category, data = plot.df)
+plot.df.xtabs
 
 par(mfrow = c(1,1))
 barplot(plot.df.xtabs, beside = TRUE, main = 'Discretization bar plot',
@@ -180,13 +188,15 @@ ggplot(plot.df, aes(x = col5, y = col1)) +
   geom_point()
 
 ggplot(plot.df, aes(x = col5, y = col1)) +
-  geom_line()
+  geom_point() + 
+  geom_smooth(method = 'lm', size = 1.3, colour = 'red', fill = 'red')
 
-# scatter plot without the default plot shape and size
 ggplot(plot.df, aes(x = col5, y = col1)) +
   geom_line()
 
+# scatter plot without the default plot shape and size
 # note that filled circle (pch = 19) is the default in ggplot
+
 ggplot(plot.df, aes(x = col2, y = col3)) +
   geom_point(shape = 21) +
   xlab('Column 2') + ylab('Column3') + 
@@ -199,6 +209,8 @@ ggplot(plot.df, aes(x = col2, y = col3)) +
 
 # adding subplots and different types
 # to add subplots with ggplot2, need to use the grid package
+
+# see also the multiplot function by Winston Chang
 
 library(grid)
 
@@ -269,6 +281,7 @@ ggplot(plot.df, aes(x = col4)) +
 
 # kernel density estimates
 # not that R/ggplot picks a different rule of thumb to determine bandwidth
+# than pandas
 
 ggplot(plot.df, aes(x = col1)) + 
   geom_density(colour = '#000000') + 
@@ -286,7 +299,7 @@ ggplot(plot.df, aes(x = col3)) +
   labs(title = 'Column 3') + 
   theme_bw()
 
-# ntice that ggplot2 by defauly ends the KDE at the min and max values
+# notice that ggplot2 by defauly ends the KDE at the min and max values
 ggplot(plot.df, aes(x = col4)) + 
   geom_density(fill = '#009E73', colour = '#009E73', alpha = 0.3) + 
   labs(title = 'Column 4')
@@ -298,3 +311,5 @@ ggplot(plot.df, aes(x = col4)) +
 
 save.path <- '~/GitHub/reproducible-research/Day-3/datasets'
 save.image(file.path(save.path, '/basic-grouping-plotting.rda'))
+
+sink()
