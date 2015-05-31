@@ -3,6 +3,12 @@
 # beyond base R graphics and other styles
 # using previous data for examples
 
+target.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
+target.file <- 'advanced-plotting-r-examples.txt'
+sink(file = file.path(target.dir, target.file))
+
+# import data -------------------------------------------------------------
+
 save.path <- '~/GitHub/reproducible-research/Day-3/datasets'
 save.file <- '/basic-grouping-plotting.rda'
 
@@ -22,7 +28,8 @@ cbPalette <-
 # and the R reference card
 
 # tutorial based on
-# http://flowingdata.com/2012/06/05/how-to-draw-in-r-and-make-custom-plots/
+# https://flowingdata.com/2014/10/23/moving-past-default-charts/
+# which also has source code available for download
 
 # quick rundown:
 # mar: number of lines of margin on each side
@@ -59,8 +66,6 @@ plot(x = rnorm(n = 200, mean = 55, sd = 14),
      type = "p", bty = "n", las = 1, asp = 1/2, col = 'yellow',
      main = "THESE RANDOM NUMBERS ARE PRETTY, ARE THEY NOT?", 
      xlab = "", ylab ="")
-
-
 
 
 
@@ -396,3 +401,19 @@ theme_bw(base_size = 15) +
         strip.background = element_rect(fill = color.background, 
                                       colour = color.background, size = 1))
 }
+
+feltron.anger <- 
+  ggplot(frustration.curve, aes(x = points, y = growth.saturation)) +
+  geom_line(colour = '#E3DF0C', size = 2) +
+  red_black_theme() +
+  labs(title = 'Correlation b/w darkness of soul\nand lack of results',
+       x = 'Anger quantification (negative = peaceful)', 
+       y = 'Probability of frustration') +
+  feltron_theme()
+
+feltron.anger
+
+ggsave(filename = '~/GitHub/reproducible-research/Day-3/datasets/feltron-anger-pdf.pdf',
+       plot = feltron.anger, width = 10, height = 10, units = 'in', dpi = 1200)
+
+sink()
