@@ -2,6 +2,9 @@
 
 # implement statistical modeling examples in R
 
+target.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
+target.file <- 'statistical-modeling-r-examples.txt'
+sink(file = file.path(target.dir, target.file))
 
 
 # published dataset -------------------------------------------------------
@@ -12,6 +15,7 @@ data.file <- 'published-data-complete.csv'
 # use base R to import
 child.study.data <- read.csv(file.path(data.dir, data.file), header = TRUE)
 
+# remove model fit values already included in the file
 child.study.data$Fitted <- NULL
 child.study.data$Resid <- NULL
 child.study.data$ScaledResid <- NULL
@@ -27,6 +31,7 @@ dplyr::glimpse(child.study.data)
 
 library(ggplot2)
 
+# color-blind friendly palette
 cbPalette <-
   c("#999999", "#E69F00", "#56B4E9", 
     "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
@@ -62,10 +67,11 @@ ggplot(child.study.data, aes(x = Age_Calc, y = M100LatCorr)) +
   geom_point(aes(colour = Case, shape = Case), size = 1.3) +
   geom_smooth(aes(colour = Case, fill = Case), method = 'lm', size = 1.3) + 
   theme_bw() + 
+  scale_x_continuous(breaks = seq(5, 17, 2))+
+  scale_y_continuous(breaks = seq(90, 215, 20))+
+  coord_cartesian(ylim = c(90, 190)) + 
   labs(x = 'Age (years)', y = 'Latency (ms)', 
        title = 'Regression of latency against age') +
-  scale_x_continuous(breaks = seq(90, 170, 20))+
-  scale_y_continuous(breaks = seq(0, 0.1, 0.02))+
   theme(legend.position = 'bottom',
         legend.text = element_text(face = 'bold', size = 16),
         legend.title = element_blank(),
@@ -74,10 +80,6 @@ ggplot(child.study.data, aes(x = Age_Calc, y = M100LatCorr)) +
         axis.ticks = element_blank(),
         axis.title.x = element_text(size = 20, face = 'bold'),
         axis.title.y = element_text(size = 20, face = 'bold'),
-        panel.grid.minor.x = element_blank(),
-        panel.grid.major.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        panel.grid.major.y = element_blank(),
         plot.title = element_text(size = 20, face = 'bold')) + 
   scale_fill_manual(values = cbPalette) + 
   scale_colour_manual(values = cbPalette) + 
@@ -111,13 +113,17 @@ plot(lat.age.model, which = c(1:6))
 lat.age.model.fortify <- fortify(lat.age.model)
 
 # fortify parent data frame with model fit parameters
-# refit without dropping NA
+# refit without dropping NA; rows must match with fortifying
+# data with model fit parameters
 
 lat.age.model.2 <- 
   lm(M100LatCorr ~ Age_Calc, data = child.study.data, na.action = na.exclude)
 
 lat.age.model.data.fortify <- fortify(lat.age.model.2, child.study.data)
 
+# for class lm(), glm() and anything that inherits from them
+# you get yhat, sigma, cook's distance, fitted, residuals
+# and standardized residuals
 
 head(lat.age.model.fortify)
 
@@ -145,8 +151,14 @@ unique(as.numeric(child.study.data$Cond))
 unique(as.numeric(child.study.data$Case))
 unique(as.numeric(child.study.data$Site))
 
+levels(child.study.data$Hem)
+levels(child.study.data$Cond)
+levels(child.study.data$Case)
+levels(child.study.data$Site)
+
 # since missing values are removed be default, no need to drop
 # but we can include them if we want to impute missing values
+# or fortify the data.frame with model fit values
 
 m100.lmm <- 
   lmer(M100LatCorr ~ Hem + Cond + Case + Site + Age_Calc + 
@@ -159,7 +171,8 @@ m100.lmm.2 <-
          (Hem + Cond | Subject), data = child.study.data,
        na.action = na.exclude, REML = FALSE)
 
-# note: can only use summary() if NA values have been dropped
+# note: can only use summary() directly if NA values have been dropped
+
 summary(m100.lmm)
 
 Anova(m100.lmm)
@@ -185,7 +198,7 @@ m100.lmm.2.fortify <- fortify(m100.lmm.2, child.study.data)
 
 head(m100.lmm.2.fortify)
 
-# predict new values and levels
+# predict new values and allowing for levels/rows not present in fit
 
 m100.lmm.2.fortify$Predicted <- 
   predict(m100.lmm.2, newdata = m100.lmm.2.fortify, 
@@ -197,6 +210,7 @@ head(m100.lmm.2.fortify)
 # refit latency-age relationship and plot the resulting model
 
 library(dplyr)
+
 m100.lmm.2.fortify.summarize <- 
   m100.lmm.2.fortify %>% 
   group_by(Subject, Case, Age_Calc) %>% 
@@ -226,7 +240,7 @@ ggplot(m100.lmm.2.fortify.summarize,
   scale_colour_manual(values = cbPalette) +
   scale_linetype_manual(values = c('solid', 'dashed', 'dotted'))
 
-# overall model
+# overall model between latency and age
 m100.age.dist.case.aov <- 
   aov(meanPredicted ~ Age_Calc * Case, data = m100.lmm.2.fortify.summarize)
 
@@ -288,8 +302,6 @@ par(mfrow = c(3, 2))
 
 plot(vowel.glm, which = c(1:6))
 
-# plot logistic curves
-
 # significance
 Anova(vowel.glm)
 
@@ -343,8 +355,6 @@ vowel.lmm.3 <-
        data = vowel.data, subset = absRT < 2000, REML = FALSE)
 
 # making more complicated models:
-# interactions of vowel and specific pairing
-
 
 # no random slopes to avoid convergence issues
 vowel.item.lmm <- 
@@ -389,4 +399,4 @@ design.mtx <- model.matrix(~ Case * Age_Calc, data = subj.case.data)
 # notice the similarities to the Python example
 design.mtx
 
-
+sink()
