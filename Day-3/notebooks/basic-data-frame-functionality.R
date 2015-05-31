@@ -1,23 +1,20 @@
 #!/usr/bin/env Rscript
 
+
+target.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
+target.file <- 'basic-data-frame-functionality.txt'
+sink(file = file.path(target.dir, target.file))
+
+# when using both plyr and dplyr, import plyr first
 library(plyr)
 library(dplyr)
 library(readr)
 
-target.dir <- '~/GitHub/reproducible-research/Day-3/notebooks'
-target.file <- 'basic-data-frame-functionality.txt'
-sink(file = file.path(target.dir, target.file))
-
 # basic functionality with base R data.frame ------------------------------
-
-census.url <- 'http://www.census.gov/2010census/csv/pop_density.csv'
 
 file.dir <- '~/GitHub/reproducible-research/Day-3/datasets'
 
 census.file <- 'census-data-from-r.csv'
-
-census.data  <- 
-  download.file(url = census.url, destfile = file.path(file.dir, census.file))
 
 census.data.base <- 
   read.csv(file.path(file.dir, census.file), stringsAsFactors = FALSE, 
@@ -32,7 +29,7 @@ density.data.cols <- colnames(census.data.base)
 
 density.data.idx <- row.names(census.data.base)
 
-# remember to always put space before comma to include all rows;
+# remember to always put space before comma to include all rows (easier to read);
 # also makes parsing your code much less confusing
 
 pop.1910 <- census.data.base[ ,'X1910_POPULATION']
@@ -58,9 +55,11 @@ apply(data.frame(density.data.cols, which.idx), 1,
 
 # basic functionality with the Hadleyverse --------------------------------
 
+census.url <- 'http://www.census.gov/2010census/csv/pop_density.csv'
+
 census.data.readr <- read_csv(census.url, col_names = TRUE, skip = 3)
 
-# data.frames in the Hadleyverse have added fuctionality;
+# data_frames in the Hadleyverse have added fuctionality;
 # many more options are available to the class 'tbl_df'
 
 attributes(census.data.readr)
@@ -129,7 +128,7 @@ test.data.frame
 
 # do the same with dplyr
 
-# cannot make directly yet, so you use this
+# cannot make directly from matrix yet, so you use this
 # in process of being changed with next release
 # see https://github.com/hadley/dplyr/issues/876
 
@@ -294,7 +293,7 @@ sprintf('Data dimensions with NA removed: %d rows, %d columns',
         dim(census.data.base.na.removed)[1], 
             dim(census.data.base.na.removed)[2])
 
-# note that while readr will not put an X in front of numers
+# note that while readr will not put an X in front of numbers
 # you still cannot access the column using '$'
 
 census.data.readr[c(1, 3, 49, 23, 36, 48, 12), 'STATE_OR_REGION'] <- NA
@@ -304,7 +303,7 @@ census.data.readr.na.removed <-
   subset(census.data.readr, STATE_OR_REGION != 'NA')
 
 
-# modification in-lace is not done for objects of class data.frame
+# modification in-place is not done for objects of class data.frame
 census.data.base[c(1, 3, 49, 23, 36, 48, 12), 'STATE_OR_REGION'] <- NA
 
 census.data.base.na.removed.2 <- 
