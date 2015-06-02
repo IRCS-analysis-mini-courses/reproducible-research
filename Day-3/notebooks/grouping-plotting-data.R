@@ -130,10 +130,6 @@ plot.df$col3Cut <-
 
 head(plot.df)
 
-
-# grouping columns
-# two ways to group: use plyr or dplyr
-
 # cross-tabulation is similar to initial Python example (get counts)
 # notice that the order of columns and rows is different
 
@@ -144,6 +140,9 @@ par(mfrow = c(1,1))
 barplot(plot.df.xtabs, beside = TRUE, main = 'Discretization bar plot',
         legend.text = TRUE, xlab = 'Category',
         args.legend = list(x = 'topleft'))
+
+# grouping columns
+# two ways to group: use plyr or dplyr
 
 # grouping with plyr and dplyr
 
@@ -175,6 +174,7 @@ plot.df.dplyr <-
             varCol4 = var(col4))
 
 plot.df.dplyr
+
 
 
 # introduction to ggplot2 -------------------------------------------------
