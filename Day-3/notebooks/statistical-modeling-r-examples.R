@@ -418,4 +418,14 @@ design.mtx <- model.matrix(~ Case * Age_Calc, data = subj.case.data)
 # notice the similarities to the Python example
 design.mtx
 
+# solving for coefficients
+# a = (transpose(x) %*% x) ^ -1 %*% transpose(x) %*% response
+
+design.mtx.trans <- t(design.mtx)
+xtx <- design.mtx.trans %*% design.mtx
+xtx.inv <- solve(xtx)
+xty <- design.mtx.trans %*% subj.case.data$meanPredicted
+a <- xtx.inv %*% xty
+a
+
 sink()
