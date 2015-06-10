@@ -11,7 +11,7 @@ For the first day of the course, we will set up all the needed software. If you 
 
 ###R
 - R 3.1.3 or higher  
-- RStudio  
+- RStudio 0.99.441  
 
 ##Other dependencies
 - Pandoc  
@@ -20,4 +20,4 @@ For the first day of the course, we will set up all the needed software. If you 
 - various Python and R packages for data munging and visualization (see [syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md) and [references](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/REFERENCES.md))
 
 ###Suggested
-[Julia 0.3.8](http://julialang.org/) (not needed, but integrates with Jupyter/IPython notebook and is young, but good, language for [numeric analysis and statistics](http://juliastats.github.io/))  
+[Julia 0.3.8 and higher](http://julialang.org/) (not needed, but integrates with Jupyter/IPython notebook and is young, but good, language for [numeric analysis and statistics](http://juliastats.github.io/))  
