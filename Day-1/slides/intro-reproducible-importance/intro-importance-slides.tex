@@ -1,0 +1,175 @@
+\documentclass[ignorenonframetext,]{beamer}
+\usetheme{Frankfurt}
+\usecolortheme{dolphin}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{:}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{lmodern}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+      \fi
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+
+% Comment these out if you don't want a slide with just the
+% part/section/subsection/subsubsection title:
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \let\insertsectionnumber\relax
+  \let\sectionname\relax
+  \frame{\sectionpage}
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\title{Reproducible research and data science}
+\author{Julian}
+\date{June 16, 2015}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Importance of reproducible research}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Basic reports/summaries
+\item
+  Consistent mistakes
+\item
+  Replicating results
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Application of reproducible research}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Funding
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Figuring out dead ends\\
+  \item
+    Agencies/foundations require audits\\
+  \end{itemize}
+\item
+  Accessibility:
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Journals: raw data, analyses, figures\\
+  \item
+    Supplemental data\\
+  \item
+    Public resource\\
+  \end{itemize}
+\item
+  Fraud detection
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Benford's law/distribution\\
+  \item
+    \href{http://stanford.edu/~dbroock/broockman_kalla_aronow_lg_irregularities.pdf}{Irregularities
+    in LaCour 2014}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{`Practical' applications of reproducible research}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Job applications
+\item
+  Tutorials
+\item
+  Demonstrating skills
+\item
+  Showcasing projects
+\item
+  Publishing/portfolio
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Resources}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  LaTex: wonderful, sharp learning curve
+\item
+  R + RStudio
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Sweave: can use LaTex + R, Python, etc.\\
+  \item
+    knitr: (R) Markdown + R code, Python, etc.\\
+  \end{itemize}
+\item
+  Python
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Jupyter/IPython: Markdown + Python/IPython + `magics'\\
+  \item
+    Eclipse\\
+  \end{itemize}
+\item
+  Git/GitHub
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Sharing data publicly
+  \item
+    Tracking changes/version control\\
+  \item
+    Portfolio/public persona
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
