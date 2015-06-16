@@ -1,0 +1,1 @@
+This folder contains the source files (R Markdown, R Presentation) and output (PDF, Tex, HTML) for the introductory slides for Day 1.
