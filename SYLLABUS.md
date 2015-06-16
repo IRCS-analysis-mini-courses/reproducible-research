@@ -2,7 +2,7 @@
 For each class and hour, there will be a set of HTML  slides and a Jupyter/IPython notebook or Sweave/knitr/RMarkdown document. The slides will be a general overview and notebooks/reports will give more detailed information.  
 
 # Day 1:  Installing Python, SciPy stack, IPython, R, RStudio, and GitHub
-## Hour 1: [Installing needed software](https://github.com/IRCS-analysis-mini-courses/reproducible-research/tree/master/Day-One)
+## Hour 1: [Installing needed software](https://github.com/IRCS-analysis-mini-courses/reproducible-research/tree/master/Day-1)
 - Versions  
 - Operating systems  
 
