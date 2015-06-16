@@ -12,6 +12,7 @@ output:
 # Importance of reproducible research
 - Basic reports/summaries
 - Consistent mistakes
+- Presenting results
 - Replicating results
 
 # Application of reproducible research
@@ -27,6 +28,7 @@ output:
     + [Irregularities in LaCour 2014](http://stanford.edu/~dbroock/broockman_kalla_aronow_lg_irregularities.pdf)  
   
 # 'Practical' applications of reproducible research
+- Platform independent
 - Job applications
 - Tutorials
 - Demonstrating skills

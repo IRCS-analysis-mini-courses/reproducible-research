@@ -8,6 +8,7 @@ Importance of reproducible research
 
 - Basic reports/summaries
 - Consistent mistakes
+- Presenting results
 - Replicating results
 
 Application of reproducible research
@@ -27,6 +28,7 @@ Application of reproducible research
 'Practical' applications of reproducible research
 ========================================================
 
+- Platform independent
 - Job applications
 - Tutorials
 - Demonstrating skills
