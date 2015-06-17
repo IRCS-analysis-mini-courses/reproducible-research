@@ -22,7 +22,7 @@ R Cookbook| Paul Teetor|
 [Princeton WW509 R examples](http://data.princeton.edu/wws509/R)|R|Germán Rodriguez's site with R instructionals and tutorials
 [RStudio cheatsheets](http://www.rstudio.com/resources/cheatsheets/)|R|RStudio cheatsheets for visualization, data munging, markdown syntax and others
 [UCLA statistics](http://statistics.ats.ucla.edu/stat/r/)|R|UCLA statistics site for learning to use R
-[Beautiful charts in `ggplot2`](UCLA statistics site for learning to use R)|R|Tutorial for creating ggplot2 figures in a variety of styles
+[Beautiful charts in `ggplot2`](http://minimaxir.com/2015/02/ggplot-tutorial/)|R|Tutorial for creating ggplot2 figures in a variety of styles
 [FlowingData: beyond base charts in R](https://flowingdata.com/2014/10/23/moving-past-default-charts/)|R|Creating aesthetically pleasing plots in base R
 [R packages for data wrangling and visualization](http://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html)|R|R packages for retrieving and manipulating data
 [Austin Clemens: 538-style plots in `ggplot2`](http://austinclemens.com/blog/2014/07/03/fivethirtyeight-com-style-graphs-in-ggplot2/)|R|Create 538-style graphs in `ggplot2`
@@ -31,7 +31,8 @@ R Cookbook| Paul Teetor|
 [Google Python class](https://developers.google.com/edu/python/?csw=1)|Python|Google's Python class with useful exercises
 [Python cheat sheet by Dave Child](http://www.cheatography.com/davechild/cheat-sheets/python/)|Python|Python cheat sheet with common commands and methods
 [R reference card](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf)|R| Refernce card for R commands and packages
-[R reference card for data mining](http://www.rdatamining.com/docs/r-reference-card-for-data-mining)|R|R reference card for data ming from [RDataMining.com](http://www.rdatamining.com/)
+[R reference card for data mining](http://www.rdatamining.com/docs/r-reference-card-for-data-mining)|R|R reference card for data mining from [RDataMining.com](http://www.rdatamining.com/)
+[Sweave and `knitr` intro and examples](http://biostat.mc.vanderbilt.edu/wiki/Main/SweaveLatex)|R|Sweave and  `knitr` introduction and template examples from Vanderbilit biostats
 
 ##Package documentation
 |Package|Site|Description|

@@ -1,0 +1,311 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%DocumentNeededResources: font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Helvetica-Oblique
+%%+ font Helvetica-BoldOblique
+%%+ font Symbol
+%%Title: R Graphics Output
+%%Creator: R Software
+%%Pages: (atend)
+%%BoundingBox: 0 0 720 720
+%%EndComments
+%%BeginProlog
+/bp  { gs sRGB gs } def
+% begin .ps.prolog
+/gs  { gsave } bind def
+/gr  { grestore } bind def
+/ep  { showpage gr gr } bind def
+/m   { moveto } bind def
+/l  { rlineto } bind def
+/np  { newpath } bind def
+/cp  { closepath } bind def
+/f   { fill } bind def
+/o   { stroke } bind def
+/c   { newpath 0 360 arc } bind def
+/r   { 4 2 roll moveto 1 copy 3 -1 roll exch 0 exch rlineto 0 rlineto -1 mul 0 exch rlineto closepath } bind def
+/p1  { stroke } bind def
+/p2  { gsave bg fill grestore newpath } bind def
+/p3  { gsave bg fill grestore stroke } bind def
+/p6  { gsave bg eofill grestore newpath } bind def
+/p7  { gsave bg eofill grestore stroke } bind def
+/t   { 5 -2 roll moveto gsave rotate
+       1 index stringwidth pop
+       mul neg 0 rmoveto show grestore } bind def
+/ta  { 4 -2 roll moveto gsave rotate show } bind def
+/tb  { 2 -1 roll 0 rmoveto show } bind def
+/cl  { grestore gsave newpath 3 index 3 index moveto 1 index
+       4 -1 roll lineto  exch 1 index lineto lineto
+       closepath clip newpath } bind def
+/rgb { setrgbcolor } bind def
+/s   { scalefont setfont } bind def
+% end   .ps.prolog
+/sRGB { [ /CIEBasedABC
+          << /DecodeLMN
+               [ { dup 0.03928 le
+                        {12.92321 div}
+                        {0.055 add 1.055 div 2.4 exp }
+                     ifelse
+                 } bind dup dup
+               ]
+             /MatrixLMN [0.412457 0.212673 0.019334
+                         0.357576 0.715152 0.119192
+                         0.180437 0.072175 0.950301]
+             /WhitePoint [0.9505 1.0 1.0890]
+           >>
+         ] setcolorspace } bind def
+/srgb { setcolor } bind def
+%%IncludeResource: font Helvetica
+/Helvetica findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font1 exch definefont pop
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font2 exch definefont pop
+%%IncludeResource: font Helvetica-Oblique
+/Helvetica-Oblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font3 exch definefont pop
+%%IncludeResource: font Helvetica-BoldOblique
+/Helvetica-BoldOblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font4 exch definefont pop
+%%IncludeResource: font Symbol
+/Symbol findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  currentdict
+  end
+/Font5 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+bp
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/bg { 0 0 0 srgb } def
+0 0 0 srgb
+1.06 setlinewidth
+[] 0 setdash
+1 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+0.00 0.00 720.00 720.00 r p3
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+61.45 43.03 705.60 671.43 cl
+/bg { 0 0 0 srgb } def
+0 0 0 srgb
+1.06 setlinewidth
+[] 0 setdash
+1 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+61.45 43.03 644.15 628.40 r p3
+1 1 1 srgb
+0 setlinecap
+np
+61.45 70.86 m
+644.15 0 l
+o
+np
+61.45 214.05 m
+644.15 0 l
+o
+np
+61.45 357.23 m
+644.15 0 l
+o
+np
+61.45 500.41 m
+644.15 0 l
+o
+np
+61.45 643.59 m
+644.15 0 l
+o
+np
+90.73 43.03 m
+0 628.40 l
+o
+np
+237.12 43.03 m
+0 628.40 l
+o
+np
+383.52 43.03 m
+0 628.40 l
+o
+np
+529.92 43.03 m
+0 628.40 l
+o
+np
+676.32 43.03 m
+0 628.40 l
+o
+1 0 0 srgb
+4.25 setlinewidth
+[] 0 setdash
+1.00 setmiterlimit
+np
+90.73 71.59 m
+7.41 0.13 l
+7.41 0.16 l
+7.41 0.19 l
+7.42 0.22 l
+7.41 0.26 l
+7.41 0.31 l
+7.41 0.37 l
+7.42 0.43 l
+7.41 0.51 l
+7.41 0.61 l
+7.41 0.71 l
+7.42 0.84 l
+7.41 1.00 l
+7.41 1.17 l
+7.42 1.38 l
+7.41 1.63 l
+7.41 1.92 l
+7.41 2.25 l
+7.42 2.64 l
+7.41 3.09 l
+7.41 3.62 l
+7.41 4.22 l
+7.42 4.92 l
+7.41 5.70 l
+7.41 6.60 l
+7.41 7.61 l
+7.42 8.73 l
+7.41 9.96 l
+7.41 11.30 l
+7.41 12.73 l
+7.42 14.25 l
+7.41 15.80 l
+7.41 17.36 l
+7.41 18.89 l
+7.42 20.32 l
+7.41 21.60 l
+7.41 22.67 l
+7.41 23.48 l
+7.42 23.98 l
+7.41 24.15 l
+7.41 23.98 l
+7.41 23.48 l
+7.42 22.67 l
+7.41 21.60 l
+7.41 20.32 l
+7.42 18.89 l
+7.41 17.37 l
+7.41 15.80 l
+7.41 14.25 l
+7.42 12.73 l
+7.41 11.30 l
+7.41 9.96 l
+7.41 8.73 l
+7.42 7.60 l
+7.41 6.60 l
+7.41 5.71 l
+7.41 4.92 l
+7.42 4.22 l
+7.41 3.62 l
+7.41 3.09 l
+7.41 2.64 l
+7.42 2.25 l
+7.41 1.92 l
+7.41 1.62 l
+7.41 1.39 l
+7.42 1.17 l
+7.41 0.99 l
+7.41 0.85 l
+7.41 0.71 l
+7.42 0.60 l
+7.41 0.52 l
+7.41 0.43 l
+7.41 0.36 l
+7.42 0.31 l
+7.41 0.27 l
+7.41 0.22 l
+7.42 0.18 l
+7.41 0.16 l
+7.41 0.14 l
+o
+0 0 0 srgb
+1.06 setlinewidth
+[] 0 setdash
+1 setlinecap
+10.00 setmiterlimit
+61.45 43.03 644.15 628.40 r p1
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/Font1 findfont 15 s
+1 1 1 srgb
+54.36 65.48 (0.00) 1 0 t
+54.36 208.66 (0.25) 1 0 t
+54.36 351.84 (0.50) 1 0 t
+54.36 495.03 (0.75) 1 0 t
+54.36 638.21 (1.00) 1 0 t
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/Font1 findfont 15 s
+1 1 1 srgb
+90.73 25.17 (-20) .5 0 t
+237.12 25.17 (-10) .5 0 t
+383.52 25.17 (0) .5 0 t
+529.92 25.17 (10) .5 0 t
+676.32 25.17 (20) .5 0 t
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/Font1 findfont 15 s
+1 1 1 srgb
+244.91 7.20 (Anger quantification \(negativ) 0 ta
+-0.375 (e = peaceful\)) tb gr
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/Font1 findfont 15 s
+1 1 1 srgb
+16.17 278.45 (Probability of fr) 90 ta
+0.225 (ustr) tb
+-0.150 (ation) tb gr
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+/Font1 findfont 15 s
+1 0 0 srgb
+276.40 696.63 (Correlation b/w dar) 0 ta
+0.225 (kness of soul) tb gr
+383.52 680.43 (and lack of results) .5 0 t
+0.00 0.00 720.00 720.00 cl
+0.00 0.00 720.00 720.00 cl
+ep
+%%Trailer
+%%Pages: 1
+%%EOF

@@ -1,0 +1,2 @@
+# User contributed data
+This folder contains the dat various people have contributed to work on in groups or alone. The goal is to familiarize yourself with manipulating data in Python and R and summarizing the results via the Jupyter/IPython notebook. You may also try generating reports or presentations using Jupyter/IPython, R Markdown, Sweave or knitr. The source files and output for the lectures shoud assist and provide a template.

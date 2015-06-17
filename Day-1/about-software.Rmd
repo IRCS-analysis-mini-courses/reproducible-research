@@ -1,0 +1,65 @@
+---
+title: "Software background"
+author: "Julian"
+date: "June 16, 2015"
+output: 
+  beamer_presentation: 
+    slide_level: 2
+    colortheme: beaver
+    theme: AnnArbor
+    toc: yes
+---
+
+# R
+- Outgrowth of S/S-Plus
+- Designed by statisticians
+- Good for cutting edge stats
+- Highly extensible
+
+## R resources
+
+- CRAN [Comprehensive R Archive Network](http://cran.r-project.org/)
+- [CRAN task views](http://cran.r-project.org/web/views/)
+- [R-bloggers](http://www.r-bloggers.com/)
+- Many, many, many others...
+
+## RStudio
+
+- Integrated Development Environment (IDE) for R
+- Web browser
+- Active development of several R packages
+- R Markdown - Markdown flavor for R
+- Git/SVN for version control
+- Syntax highlighting for other languages
+
+## Sweave/knitr
+
+- Sweave: report generation for R
+- `knitr`
+    + extends functionality of Sweave
+    + works with R Markdown
+
+# Jupyter/IPython
+- Interactive computing
+- Jupyter: Python-agnostic parts of IPython
+- Interface with other languages: e.g., R, Julia
+
+## Eclipse
+- IDE for Python
+- Interfaces with IPython
+- Git/SVN for version control
+- Use with Anaconda distribution
+
+# Julia
+- Young programming language
+- Highly extensible
+- Intended to be fast (OpenBLAS)
+- Best parts of Python, R, MATLAB
+    + Numeric computation
+    + Statistical modeling
+    + Dicts, lists, etc.
+
+## Jupyter
+- Use Julia with Jupyer/IPython notebook
+- Compare results with R, Python in-notebook
+- Julia magics

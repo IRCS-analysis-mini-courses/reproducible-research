@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-sink(file = '~/GitHub/reproducible-research/Day-3/notebooks/import-data-output.txt')
+sink(file = '~/GitHub/reproducible-research/Day-3/datasets/import-data-output.txt')
 
 library(readr)
 
