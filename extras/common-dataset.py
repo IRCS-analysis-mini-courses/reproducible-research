@@ -12,7 +12,7 @@ np.random.seed(495835)
 # create names from letters and digits to create column headings
 
 
-digit_let = [str(digit) + letter for digit, letter in zip(digits, letters)]
+digit_let = [letter + str(digit) + letter for digit, letter in zip(digits, letters)]
 let_digit = [letter + str(digit) for digit, letter in zip(digits, letters)]
 
 letters_rand = np.random.permutation(list(letters)).tostring()
@@ -36,6 +36,7 @@ for entry in let_let:
 
 len(digit_let)
 
+
 #------------------------------------------------------------------------------ 
 
 # create a matrix
@@ -50,7 +51,17 @@ random_data_frame.head()
 
 #------------------------------------------------------------------------------ 
 
+# create categorical labels
+
+cat_labels = ['first', 'second', 'third', 'fourth']
+part_labels = ['one', 'two']
+
+random_data_frame['Cat'] = cat_labels * 3750
+random_data_frame['Part'] = part_labels * 7500
+
+#------------------------------------------------------------------------------ 
+
 # export to CSV file
 
 target_dir = '/Users/julian/GitHub/reproducible-research/extras/'
-random_data_frame.to_csv(target_dir + 'common-dataset.csv')
+random_data_frame.to_csv(target_dir + 'common-dataset.csv', index = False)
