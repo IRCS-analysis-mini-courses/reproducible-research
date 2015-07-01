@@ -43,7 +43,7 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 
 ## Hour 2: Report generation with [RMarkdown](http://rmarkdown.rstudio.com/), [Sweave](http://www.statistik.lmu.de/~leisch/Sweave/) and [knitr](http://yihui.name/knitr/)
 
-# Day 4: Advanced numerical analysis
+# Day 4: Advanced analysis
 
 ## Hour 1: Computer Algebra Systems (CAS)
 - Introduction to `SymPy`  
@@ -51,7 +51,9 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 - Algebra  
 - Linear algebra  
 - Calculus  
-
-## Hour 2: Analysis of dynamical systems
-- Coordination  
-- Signaling
+- Dynamical systems
+  
+## Hour 2: Curve-fitting
+- Optimization and loss functions
+- Regression as curve-fitting
+- Specifying your own function
