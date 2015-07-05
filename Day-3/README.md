@@ -11,6 +11,19 @@ The first hour of day three will focus on using the 'Hadleyverse' to import, exp
 - Using `ggplot2` for publication-quality figures  
 - Linear regression  
 - Logistic regression  
-- (Generalized) Linear Mixed Models  
+- (Generalized) Linear Mixed Models 
+- using reports to share and show your work  
 
 ##Hour 2
+- output results of Jupyter/IPython notebook (terminal/in notebook)  
+    + static HTML  
+    + embeddable HTML  
+    + articles  
+    + reports  
+    + HTML slides (Reveal.js)  
+    + executable  script (*.py)  
+- using R/RStudio to create presentations and reports  
+    + HTML slides  
+    + R Markdown presentations with Beamer  
+    + articles with Sweave / R Markdown / `knitr`  
+- `knitr` for general formatting
