@@ -1,0 +1,108 @@
+---
+title: "Auditory Evoked M100 Response Latency is Delayed in Children with 16p11.2 Deletion but not 16p11.2 Duplication"
+author: "Julian"
+date: "July 6, 2015"
+output: 
+  beamer_presentation: 
+    colortheme: dolphin
+    fig_crop: no
+    keep_tex: yes
+    theme: Frankfurt
+---
+
+```{r load experimental data, echo = FALSE, eval = TRUE, message = FALSE}
+setwd('~/GitHub/reproducible-research/Day-3/sweave_knitr/m100-r-markdown/')
+load('~/GitHub/reproducible-research/Day-3/sweave_knitr/m100-r-markdown/child-control-deletion-duplication-analyses-workspace-december-2014.rda')
+
+library(knitr)
+```
+
+# Executive summary
+- 16p11.2 deletion carriers exhibited delalyed M100 latencies  
+- Differences are larger than in 'idiopathic' ASD  
+- No oberserved differences between controls and 16p11.2 duplication carriers
+
+# Participants (recruited)
+- 137 children  
+  + CHOP: 63, UCSF: 74
+- 46 16p11.2 deletion carriers  
+- 26 16p11.2 duplication carriers  
+- 66 age-matched controls  
+
+# Participants (final)
+- 99 children  
+  + CHOP: 47, UCSF: 52  
+- 35 16p11.2 deletion carriers  
+- 16 16p11.2 duplication carriers  
+- 48 age-matched controls 
+
+# Particpants (final)
+
+|---|Controls	| Deletions	| Duplications|
+|-----|-----|-----|-----
+|Age range (years) |	7.31 - 17.15	|7.98 - 17.03 |	7.38 - 16.92
+|Mean age (years) |	12.82±2.56 |	11.32±.2.65 |	11.45±2.41
+|N (evaluable) |	45 |	35 |	16
+|NVIQ|	105.73±11.88 |	90.09±15.07 |	83.06±10.68
+|VIQ|	107.24±13.72|	85.37±17.05 |	91.69±14.09
+|CELF-4|	106.22±11.22 |	75.81±20.80 |	84.62±13.18
+|SRS|	16.68±11.89 |	71.51±34.38 |	72.06±41.22
+|CTOPP  |	9.23±1.95 |	5.64±2.64 |	7.64±1.45
+
+
+
+# Procedure
+- passive presentation of binaural sinusoidal tones  
+- recording from whole-head magnetometer  
+- analysis: artifact rejection, bandpass filtering, source estimation
+
+# Statistical analysis
+- M100 latency: dependent variable  
+- Linear Mixed Models via `lme4`  
+- model: `Hemisphere + Stimulus Condition + Case + Age + Site + (Stimulus Condition + Hemisphere | Subject)`  
+- significance: Wald Type II $\chi$^2^ tests; Tukey HSD, correlation tests
+
+
+# Complete observations
+```{r complete observations, echo = FALSE, message = FALSE}
+kable(group.complete)
+```
+
+
+
+# M100 latency effects - condition means
+
+```{r condition means, echo = FALSE, message = TRUE}
+library(ggplot2)
+cond.means.plot
+```
+
+# M100 latency effects - hemisphere means
+
+```{r hemisphere means, echo = FALSE, message = TRUE}
+hem.means.plot
+```
+
+# M100 latency effects - mean responses
+|Mean | Controls | Deletions | Duplications|
+|:-----|-----|-----|-----
+|Overall (ms) |	127.2±3.1	| 149.0±3.6 |	120.9±5.3
+|LH (ms) | 136.7±3.7	| 155.3±4.0 | 126.5±6.6
+|RH (ms) | 118.6±3.3 | 143.0±4.1 | 115.7±5.8
+
+# Effect size estimation
+```{r case significance Tukey tests, echo = FALSE, message = FALSE}
+kable(fortify(child.addmodel.case.tukey), digits = 1)
+
+```
+
+# Variance differences
+```{r residuals plus means, echo = FALSE, message = FALSE, warning = FALSE}
+residual.plus.mean.density
+```
+
+# Conclusion
+ - main result: ~20 ms delay in M100 component in 16p11.2 deletion carriers  
+ - no observed significant difference bewtween 16p11.2 duplication carriers and controls  
+- effects not inconsistent with other reported effects
+- support for gene-neurophysiology association
