@@ -72,6 +72,7 @@ kable(group.complete)
 
 M100 latency effects - condition means
 ========================================================
+## Center {.flexbox .vcenter}
 ```{r condition means, echo = FALSE, message = TRUE}
 library(ggplot2)
 cond.means.plot

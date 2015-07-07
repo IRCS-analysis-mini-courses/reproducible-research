@@ -70,6 +70,7 @@ Complete observations
 
 M100 latency effects - condition means
 ========================================================
+## Center {.flexbox .vcenter}
 ![plot of chunk condition means](m100-r-presentation-version-figure/condition means-1.png) 
 
 M100 latency effects - hemisphere means
