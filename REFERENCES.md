@@ -34,6 +34,7 @@ R Cookbook| Paul Teetor|
 [R reference card for data mining](http://www.rdatamining.com/docs/r-reference-card-for-data-mining)|R|R reference card for data mining from [RDataMining.com](http://www.rdatamining.com/)
 [Sweave and `knitr` intro and examples](http://biostat.mc.vanderbilt.edu/wiki/Main/SweaveLatex)|R|Sweave and  `knitr` introduction and template examples from Vanderbilit biostats  
 [GitHub tutorial by Karl Broman](http://kbroman.org/github_tutorial/)| Git/GitHub|Minimal tutorial on using Git/GitHub
+[Text formatting with LaTex](http://www.unc.edu/depts/econ/egsa/LaTeX.pdf)|LaTeX|Tutorial on LaTeX formatting commands
 
 ##Package documentation
 |Package|Site|Description|
