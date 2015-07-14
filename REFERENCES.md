@@ -35,6 +35,7 @@ R Cookbook| Paul Teetor|
 [Sweave and `knitr` intro and examples](http://biostat.mc.vanderbilt.edu/wiki/Main/SweaveLatex)|R|Sweave and  `knitr` introduction and template examples from Vanderbilit biostats  
 [GitHub tutorial by Karl Broman](http://kbroman.org/github_tutorial/)| Git/GitHub|Minimal tutorial on using Git/GitHub
 [Text formatting with LaTex](http://www.unc.edu/depts/econ/egsa/LaTeX.pdf)|LaTeX|Tutorial on LaTeX formatting commands
+[Quick-R](http://www.statmethods.net/)|R|Intro to R functions and capabilities with examples
 
 ##Package documentation
 |Package|Site|Description|
