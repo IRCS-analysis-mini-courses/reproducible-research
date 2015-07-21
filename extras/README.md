@@ -4,6 +4,6 @@ This folder contains a dataset (and the Python script used to generate it) that 
 
 ## Contents
 - comparison of functionality between `dplyr` and `pandas`  
-- introduction to `NumPy` (Jupyter/IPython notebook)  
+- introduction to `NumPy` (Jupyter/IPython notebook) [Notebook on GitHub](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/extras/NumPy-basics.ipynb)  || [Notebook on nbviewer](http://nbviewer.ipython.org/github/IRCS-analysis-mini-courses/reproducible-research/blob/master/extras/NumPy-basics.ipynb)  
 
 
