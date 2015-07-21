@@ -19,5 +19,13 @@ For the first day of the course, we will set up all the needed software. If you 
 - GitHub account
 - various Python and R packages for data munging and visualization (see [syllabus](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/SYLLABUS.md) and [references](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/REFERENCES.md))
 
+# Notes about file sizes and installation
+Several of these programs are very large in size and will take a while to download:  
+- Anaconda: 882 MB  
+- XCode: need acces to App Store to download  
+- RStudio: 315 MB  
+- MacTex: 2.5 GB (maybe do this overnight)  
+- MikTex: 158 MB + additional packages (maybe do this overnight)
+
 ###Suggested
 [Julia 0.3.8 and higher](http://julialang.org/) (not needed, but integrates with Jupyter/IPython notebook and is young, but good, language for [numeric analysis and statistics](http://juliastats.github.io/))  
