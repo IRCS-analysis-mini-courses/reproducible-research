@@ -32,7 +32,7 @@ To create PDF and LaTeX output, the install process is more involved (see also t
 - install Mactex  
 - install Pandoc  
 - install Macports
-- install the following from macports:  
+- install the following from Macports:  
     + `texlive-latex-recommended`  
     + `texlive-latex-extra`  
     + `texlive-fonts-recommended`
