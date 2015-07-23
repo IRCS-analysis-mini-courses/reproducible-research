@@ -4,16 +4,16 @@ For the first day of the course, we will set up all the needed software. If you 
 ##Needed software
 ###Python
 - Python 2.7.x (2.7.10 is included in the Anaconda release being used)  
-- IPython 3.1.0 and above (3.2.0 included in Anaconda release being used)  
-- Jupyter/IPython notebook  
+- IPython 3.1.0 and above (3.2.1 included in Anaconda release being used)  
+- Jupyter/IPython notebook (part of IPython installation)  
 - Anaconda (will install IPython, Jupyter/IPython notebook and SciPy stack) 
 
 
 ###R
-- R 3.1.3 or higher (scripts have been tested on a R 3.2.1 system install, Mac OS X Yosemite)  
-- RStudio 0.99.441 and higher (tested on 0.99.467, Mac OS X Yosemite)  
+- R 3.1.3 or higher (scripts have been tested on a R 3.2.1 system install, Mac OS X Yosemite 10.10.4)  
+- RStudio 0.99.441 and higher (tested on 0.99.467, Mac OS X Yosemite 10.10.4)  
 
-##Other dependencies
+##Other dependencies (covered in installation notebook)
 - Pandoc  
 - LaTeX  
 - GitHub account
@@ -24,7 +24,7 @@ Several of these programs are very large in size and will take a while to downlo
 - Anaconda: 882 MB  
 - XCode: need acces to App Store to download  
 - RStudio: 315 MB  
-- MacTex (Mac OS x): 2.5 GB (maybe do this overnight)  
+- MacTex (Mac OS x): 2.5 GB (maybe do this overnight if not torrented)  
 - MikTex (Windows): 158 MB + additional packages (maybe do this overnight)
 
 ## Mac OS X
@@ -36,7 +36,7 @@ To create PDF and LaTeX output, the install process is more involved (see also t
     + `texlive-latex-recommended`  
     + `texlive-latex-extra`  
     + `texlive-fonts-recommended`
-If you need assistance installing XCode and XCode command line tools and commands for Macports, we can show you how.
+If you need assistance installing XCode and XCode command line tools and commands for Macports, we can show you how.  You can test to see if the installation works by trying to output a PDF (we can help with this).
 
 ###Suggested
 [Julia 0.3.8 and higher](http://julialang.org/) (not needed, but integrates with Jupyter/IPython notebook and is young, but good, language for [numeric analysis and statistics](http://juliastats.github.io/))  
