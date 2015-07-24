@@ -1,0 +1,457 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textbf{{#1}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Julian},
+            pdftitle={Creating the large multivariate dataset in R},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Creating the large multivariate dataset in R}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Julian}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Executive summary}\label{executive-summary}
+
+The goal of this document:\\- demonstrate various R commands\\- how to
+potentially import and inspect a large dataset\\- creating statistical
+models for large datasets\\- how to author a report using Sweave or R
+Markdown
+
+\section{Steps}\label{steps}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  create subject ids\\
+\item
+  set a random seed (makes tracking what was done harder)\\
+\item
+  randomly creating subject ages\\
+\item
+  simulating subject responses\\
+\item
+  generating reaction times and introducing real data\\
+\item
+  assigning attempts\\
+\item
+  assigning subjects to groups\\
+\item
+  adding trial, token phase data in long format
+\end{itemize}
+
+\section{Execution}\label{execution}
+
+This document was created in R Markdown. All the data were generated
+using R code. To execute the commands, change the chunk options to
+\texttt{eval\ \ =\ TRUE}.
+
+The source code (R) is contained in the Day 3 directory.
+
+\includegraphics{ozymandias-by-gibbons.jpg}
+
+\section{Data generation}\label{data-generation}
+
+\subsection{Set random seed}\label{set-random-seed}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{RNGkind}\NormalTok{(}\StringTok{'Mersenne-Twister'}\NormalTok{)}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2340875}\NormalTok{)}
+\NormalTok{old.seed <-}\StringTok{ }\NormalTok{.Random.seed}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{Create \texttt{Subject}, \texttt{Age},
+\texttt{Group}
+vectors}{Create Subject, Age, Group vectors}}\label{create-subject-age-group-vectors}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{subj.nums <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{102}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+
+\NormalTok{subj.ids <-}\StringTok{ }\KeywordTok{character}\NormalTok{(}\KeywordTok{length}\NormalTok{(subj.nums))}
+
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{length}\NormalTok{(subj.nums)) \{}
+  \NormalTok{subj.ids[i] <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{'subj-'}\NormalTok{, subj.nums[i], }\DataTypeTok{sep =} \StringTok{''}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{subj.rep <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(subj.ids, }\DecValTok{800}\NormalTok{)}
+
+\NormalTok{groups <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{'treatment-1'}\NormalTok{, }\StringTok{'treatment-2'}\NormalTok{, }\StringTok{'control'}\NormalTok{)}
+\NormalTok{age.vec <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{min =} \DecValTok{18}\NormalTok{, }\DataTypeTok{max =} \DecValTok{52}\NormalTok{, }\DataTypeTok{n =} \KeywordTok{length}\NormalTok{(subj.ids))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Assign subjects to an age}\label{assign-subjects-to-an-age}
+
+Replicates the ages to match the subject repetitions
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{age.rep <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(age.vec, }\DecValTok{800}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Simulating correct
+responses}\label{simulating-correct-responses}
+
+Much slower than generating vector (especially since R is making a deep
+copy each time), but harder to figure out what was done
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{correctness <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max  =} \DecValTok{1}\NormalTok{, }\DataTypeTok{n =} \KeywordTok{length}\NormalTok{(subj.rep))}
+
+\NormalTok{correct.vec <-}\StringTok{ }\KeywordTok{integer}\NormalTok{()}
+
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{length}\NormalTok{(subj.rep)) \{}
+  \NormalTok{correct.vec[i] <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{prob =} \NormalTok{correctness[i], }\DataTypeTok{size =} \DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generating reaction times}\label{generating-reaction-times}
+
+Once again, very slow but an extra hurdle to jump through
+
+\subsection{Replacing values selectively with real
+data}\label{replacing-values-selectively-with-real-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data.dir <-}\StringTok{ '~/GitHub/reproducible-research/Day-2/datasets'}
+\NormalTok{data.file <-}\StringTok{ 'psycho-data-april-2015.csv'}
+
+\NormalTok{real.data <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(data.dir, data.file), }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{real.rt <-}\StringTok{ }\NormalTok{real.data$absRT}
+
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{length}\NormalTok{(subj.rep)) \{}
+  \NormalTok{if (rt.vec[i] >}\StringTok{ }\DecValTok{600}\NormalTok{) \{}
+    \NormalTok{rt.vec[i] <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(real.rt, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{)}
+  \NormalTok{\} else \{}
+    \NormalTok{next }\CommentTok{# R's version of a continue statement}
+  \NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Creating timed out values}\label{creating-timed-out-values}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{length}\NormalTok{(subj.rep)) \{}
+  \NormalTok{if (rt.vec[i] >}\StringTok{ }\DecValTok{2200}\NormalTok{) \{}
+    \NormalTok{rt.vec[i] =}\StringTok{ }\DecValTok{200}
+  \NormalTok{\} else \{}
+    \NormalTok{next}
+  \NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\#\# Creating attempts vector Since there is no random integer function
+in base R, round numbers from a uniform distribution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{attempt.vec <-}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{length}\NormalTok{(subj.rep), }\DataTypeTok{min =} \DecValTok{1}\NormalTok{, }\DataTypeTok{max =} \DecValTok{15}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Create token vector}\label{create-token-vector}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{token.rep <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{each =} \DecValTok{20}\NormalTok{)}
+\NormalTok{token.vec <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(token.rep, }\DecValTok{800}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{Create experimental
+\texttt{data.frame}}{Create experimental data.frame}}\label{create-experimental-data.frame}
+
+Using \texttt{data.table} since it is faster
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(data.table)}
+
+\NormalTok{sample.data$Subject <-}\StringTok{ }\NormalTok{subj.rep}
+
+\NormalTok{sample.data <-}\StringTok{ }
+\StringTok{  }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{Subject =} \NormalTok{subj.rep, }\DataTypeTok{Age =} \NormalTok{age.rep, }\DataTypeTok{Attempts =} \NormalTok{attempt.vec, }
+             \DataTypeTok{Correct =} \NormalTok{correct.vec, }\DataTypeTok{RT =} \NormalTok{rt.vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Add in trials}\label{add-in-trials}
+
+For the trials, tokens, groups, and phases a new function will be
+introduced: \texttt{gl()}. This allows you to generate factor levels and
+it will be used to create the labels for each level. Generally, you
+would use this to create new factors with appropriate levels for
+statistical analysis, but this is a good way to introduce this
+function.\\It should be noted that you should be careful with this
+function, as you will need to know the pattern for the labels you are
+creating.
+
+The first step will be to sort the data into long format (well, the
+convention anyway). This makes it easier to see what is going on with
+the levels. You shold also take advantage of the viewer (\texttt{View()}
+function) in RStudio to explore the data structure.
+
+\subsection{Sorting data into proper long
+format}\label{sorting-data-into-proper-long-format}
+
+Easiest to sort the data using \texttt{dplyr} (though \texttt{plyr}
+would also work well).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{sample.data <-}\StringTok{ }\KeywordTok{arrange}\NormalTok{(sample.data, Subject)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generate tokens}\label{generate-tokens}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data$Token <-}\StringTok{ }\KeywordTok{gl}\NormalTok{(}\DataTypeTok{n =} \DecValTok{20}\NormalTok{, }\DataTypeTok{k =} \DecValTok{40}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generate trials}\label{generate-trials}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data$Trial <-}\StringTok{ }\KeywordTok{gl}\NormalTok{(}\DataTypeTok{n =} \DecValTok{20}\NormalTok{, }\DataTypeTok{k =} \DecValTok{1}\NormalTok{, }\DataTypeTok{length =} \DecValTok{20} \NormalTok{*}\StringTok{ }\KeywordTok{length}\NormalTok{(subj.ids))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generate phases}\label{generate-phases}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data$Phase <-}\StringTok{ }\KeywordTok{gl}\NormalTok{(}\DataTypeTok{n =} \DecValTok{2}\NormalTok{, }\DataTypeTok{k =} \DecValTok{400}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generate groups}\label{generate-groups}
+
+The groups will not be generated in the same manner as was done in
+Python. I could have mapped values as was done previously, but instead I
+will just assign groups using \texttt{rep()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{treat}\FloatTok{.1} \NormalTok{<-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'treatmet-1'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+\NormalTok{treat}\FloatTok{.2} \NormalTok{<-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'treatment-2'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+\NormalTok{control <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'control'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+
+\NormalTok{group.vec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(treat}\FloatTok{.1}\NormalTok{, treat}\FloatTok{.2}\NormalTok{, control)}
+
+\NormalTok{sample.data$Group <-}\StringTok{ }\NormalTok{group.vec}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Changing data to appropriate
+types}\label{changing-data-to-appropriate-types}
+
+This is not really necessary, but we can change the columns
+\texttt{Group} and \texttt{Subject} to factors - they would be coerced
+anyway if a model were to be run. The numeric columns could also be
+coerced into factors (or integers), but this is likewise not really
+necessary. This is mentioned elsewhere, but use \texttt{methods(as)} to
+see how to manilulate data types. The packages \texttt{stringr},
+\texttt{stringi}, \texttt{lubdridate} and others also have methods to
+convert data types.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data$Subject <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sample.data$Subject)}
+
+\NormalTok{sample.data$Group <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sample.data$Group)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Export to CSV}\label{export-to-csv}
+
+This is pretty self-explanatory; use the documentation to see all of the
+options. Depending on needs, the \texttt{readr}, \texttt{xlsx} and other
+packages have the option to output to a variety of different formats.
+
+\section{Appendix: vectorized
+functions}\label{appendix-vectorized-functions}
+
+The data were created in a rather slow, tedious manner, mostly to
+introduce control flow and to be explicit about the steps that were
+taken. This is further complicated by the fact that R handles data in a
+less than ideal way sometimes, especially with making deep copies on
+loops \href{http://adv-r.had.co.nz/memory.html}{see here for more
+details}.
+
+Below are examples of using vectorized functions instead of \texttt{for}
+loops to manipulate data. There are also additional packages (such as
+\texttt{data.table}) that vectorize functions and work with large
+datasets.
+
+\subsection{Simulating correctness}\label{simulating-correctness}
+
+Here we use the vector of probabilities and specify the size of the
+final vector to speed up computation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{correct.vec <-}\StringTok{ }\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{81600}\NormalTok{, }\DataTypeTok{prob =} \NormalTok{correctness, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Simulating reaction time}\label{simulating-reaction-time}
+
+Generating the reaction times is done in the same manner:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rt.vec <-}\StringTok{ }
+\StringTok{  }\KeywordTok{rlnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{81600}\NormalTok{, }\DataTypeTok{meanlog =} \FloatTok{6.0}\NormalTok{, }\DataTypeTok{sdlog =} \FloatTok{0.5}\NormalTok{) +}\StringTok{ }\DecValTok{5} \NormalTok{+}
+\StringTok{    }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n =} \DecValTok{81600}\NormalTok{, }\DataTypeTok{min =} \DecValTok{10}\NormalTok{, }\DataTypeTok{max =} \DecValTok{100}\NormalTok{) +}
+\StringTok{    }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{81600}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{70}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Replacing simulated values with real
+values}\label{replacing-simulated-values-with-real-values}
+
+There are several options here that we could go with. We will use base R
+functions for indexing, replacement and sampling.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gr}\FloatTok{.600} \NormalTok{<-}\StringTok{ }\KeywordTok{which}\NormalTok{(rt.vec >}\StringTok{ }\DecValTok{600}\NormalTok{)}
+
+\NormalTok{real.sample <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(real.rt, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{size =} \KeywordTok{length}\NormalTok{(gr}\FloatTok{.600}\NormalTok{))}
+
+\NormalTok{rt.vec <-}\StringTok{ }\KeywordTok{replace}\NormalTok{(rt.vec, gr}\FloatTok{.600}\NormalTok{, real.sample)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Creating timed out
+values}\label{creating-timed-out-values-1}
+
+Follow the same procedure as the above to create the timed out values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gr}\FloatTok{.2200} \NormalTok{<-}\StringTok{ }\KeywordTok{which}\NormalTok{(rt.vec >}\StringTok{ }\DecValTok{2200}\NormalTok{)}
+
+\NormalTok{rt.vec <-}\StringTok{ }\KeywordTok{replace}\NormalTok{(rt.vec, gr}\FloatTok{.2200}\NormalTok{, }\DecValTok{2200}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
