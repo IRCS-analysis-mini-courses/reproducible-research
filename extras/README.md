@@ -6,8 +6,10 @@ This folder contains a dataset (and the Python script used to generate it) that 
 - comparison of functionality between `dplyr` and `pandas`  
 - introduction to `NumPy` (Jupyter/IPython notebook) [Notebook on GitHub](https://github.com/IRCS-analysis-mini-courses/reproducible-research/blob/master/extras/NumPy-basics.ipynb)  || [Notebook on nbviewer](http://nbviewer.ipython.org/github/IRCS-analysis-mini-courses/reproducible-research/blob/master/extras/NumPy-basics.ipynb)  
 
-## Running a Python script in RStudio
-You may run a Python script in RStudio in two ways:  
-    1. Use the `Run Script` button at the top of the editor window 
-    2. From command line: `system("python path/to/script.py")`
-        a. if the above does not work (R may look at the system isntall of Python instead of the output of `which python`) do this: `system("path/to/python/beingused Documents/R_info/python-test-run.py")` where `path/to/python/beingused` is the output of `which python`
+## Running a Python script in R or RStudio
+You may run a Python script in R or RStudio in two ways:  
+    1. Use the `Run Script` button at the top of the editor window in R Studio  
+    2. From R console: `system("python path/to/script.py")`  
+            - if the above does not work (R may look at the system isntall of Python instead of the output of `which python`)  
+            - do this: `system("path/to/python/beingused path/to/script/python-test-run.py")`  
+            - where `path/to/python/beingused` is the output of `which python`
