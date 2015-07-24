@@ -177,13 +177,46 @@ sample.data$Phase <- gl(n = 2, k = 400, labels = c(1, 2))
 ```
 
 ## Generate groups
-The groups will not be generated in the same manner as was done in Python. I could have mapped values out previously, but instead I will just assign 
+The groups will not be generated in the same manner as was done in Python. I could have mapped values as was done previously, but instead I will just assign groups using `rep()`.
+
+```{r generate groups, eval = FALSE, echo = TRUE}
+
+treat.1 <- rep(c('treatmet-1'), 34 * 800)
+treat.2 <- rep(c('treatment-2'), 34 * 800)
+control <- rep(c('control'), 34 * 800)
+
+group.vec <- c(treat.1, treat.2, control)
+
+sample.data$Group <- group.vec
+
+```
+
 
 ## Changing data to appropriate types
+This is not really necessary, but we can change the columns `Group` and `Subject` to factors - they would be coerced anyway if a model were to be run. The numeric columns could also be coerced into factors (or integers), but this is likewise not really necessary. This is mentioned elsewhere, but use `methods(as)` to see how to manilulate data types. The packages `stringr`, `stringi`, `lubdridate` and others also have methods to convert data types.
+
+```{r changing data types, eval = FALSE, echo = TRUE}
+
+sample.data$Subject <- as.factor(sample.data$Subject)
+
+sample.data$Group <- as.factor(sample.data$Group)
+```
 
 
 
 ## Export to CSV
+This is pretty self-explanatory; use the documentation to see all of the options.  Depending on needs, the `readr`, `xlsx` and other packages have the option to output to a variety of different formats.
+
+```{r export to CSV, eval = FALSE, echo = FALSE}
+output.path <- '~/GitHub/reproducible-research/Day-3/notebooks/multivariate-data-creation-in-r'
+
+output.file <- 'multivariate-dataset-in-r.csv'
+
+write.csv(sample.data, file.path(output.path, output.file), na = '', row.names = FALSE)
+
+
+```
+
 
 # Appendix: vectorized functions
 The data were created in a rather slow, tedious manner, mostly to introduce control flow and to be explicit about the steps that were taken. This is further complicated by the fact that R handles data in a less than ideal way sometimes, especially with making deep copies on loops [see here for more details](http://adv-r.had.co.nz/memory.html).

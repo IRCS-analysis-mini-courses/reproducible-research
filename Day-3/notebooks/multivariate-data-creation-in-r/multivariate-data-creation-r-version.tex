@@ -345,13 +345,46 @@ would also work well).
 \subsection{Generate groups}\label{generate-groups}
 
 The groups will not be generated in the same manner as was done in
-Python. I could have mapped values out previously, but instead I will
-just assign
+Python. I could have mapped values as was done previously, but instead I
+will just assign groups using \texttt{rep()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{treat}\FloatTok{.1} \NormalTok{<-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'treatmet-1'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+\NormalTok{treat}\FloatTok{.2} \NormalTok{<-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'treatment-2'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+\NormalTok{control <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'control'}\NormalTok{), }\DecValTok{34} \NormalTok{*}\StringTok{ }\DecValTok{800}\NormalTok{)}
+
+\NormalTok{group.vec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(treat}\FloatTok{.1}\NormalTok{, treat}\FloatTok{.2}\NormalTok{, control)}
+
+\NormalTok{sample.data$Group <-}\StringTok{ }\NormalTok{group.vec}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Changing data to appropriate
 types}\label{changing-data-to-appropriate-types}
 
+This is not really necessary, but we can change the columns
+\texttt{Group} and \texttt{Subject} to factors - they would be coerced
+anyway if a model were to be run. The numeric columns could also be
+coerced into factors (or integers), but this is likewise not really
+necessary. This is mentioned elsewhere, but use \texttt{methods(as)} to
+see how to manilulate data types. The packages \texttt{stringr},
+\texttt{stringi}, \texttt{lubdridate} and others also have methods to
+convert data types.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample.data$Subject <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sample.data$Subject)}
+
+\NormalTok{sample.data$Group <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(sample.data$Group)}
+\end{Highlighting}
+\end{Shaded}
+
 \subsection{Export to CSV}\label{export-to-csv}
+
+This is pretty self-explanatory; use the documentation to see all of the
+options. Depending on needs, the \texttt{readr}, \texttt{xlsx} and other
+packages have the option to output to a variety of different formats.
 
 \section{Appendix: vectorized
 functions}\label{appendix-vectorized-functions}
