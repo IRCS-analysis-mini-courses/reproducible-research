@@ -31,7 +31,7 @@ This document was created in R Markdown. All the data were generated using R cod
 
 The source code (R) is contained in the Day 3 directory.
 
-![35 miuntes ago...](ozymandias-by-gibbons.jpg)
+![35 minutes ago...](ozymandias-by-gibbons.jpg)
 
 # Data generation
 ## Set random seed
