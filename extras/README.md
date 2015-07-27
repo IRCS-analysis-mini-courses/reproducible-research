@@ -19,3 +19,8 @@ At least one person mentioned wanting to learn more about machine learning. The 
 - Markdown document using the Kaggle Titanic machine learning tutorial in R. This demonstrates some visualzations and model techniques that are not normally covered or implemented, but that can be useful. It also demonstrates how to use the `caret` package for machine learning. [You can access it here](https://github.com/wehrley/wehrley.github.io/blob/master/SOUPTONUTS.md).  
 
 Also check the [`scikit-learn` documentation](http://scikit-learn.org/stable/documentation.html) and [examples](http://scikit-learn.org/stable/auto_examples/index.html). There are several example scripts and notebooks avialable for download (with varying degrees of readability and clarity). There is a good introductory example to text processing and analytics [that can be found here](http://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html). To get access to all the tutorial data, clone [the GitHub repository](https://github.com/scikit-learn/scikit-learn). 
+
+## Pull requests
+When someone makes a pull request to a repository two things happen: you get an email stating there has been a pull request; 2) the body of that email gives you details and you can view the files.  For the first pull request, here is what those emails look like:  
+
+![email details](/extras/pull-request-details.png)
