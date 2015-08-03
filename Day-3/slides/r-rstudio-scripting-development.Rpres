@@ -10,7 +10,7 @@ R/RStudio
 ========================================================
 
 - R: command line based  
-  + run script from terminal or console
+  + run script from terminal or console  
 - perform analyses in script (*.R)  
 - highly flexible  
 - integration with Git via projects  
@@ -20,8 +20,8 @@ RStudio
 
 - wonderful IDE  
 - easy to execute scripts  
-  + console  
-  + GUI  
+  + console: `source(filename.script)`  
+  + GUI (button)  
   + run sections/lines selectively  
 - highlighting for several languages  
 - navigate within the script/file via sections  
@@ -89,7 +89,7 @@ Grouping data
 - `plyr`: came first, lots of functionality  
 - `dplyr`: next generation, lots of functionality
 - likely use both `plyr` and `dplyr`  
-- `reshape2`: reshaping dat between wide and long
+- `reshape2`: reshaping data between wide and long
 
 Model creation and classical tests
 ========================================================
@@ -97,7 +97,7 @@ Model creation and classical tests
     + `lm()`  
     + `aov()`  
     + `glm()`  
-    + time sereies methods  
+    + time series methods  
 - common classical tests implemented in base R  
 - additional common tests: `car` package
 
@@ -105,13 +105,13 @@ Mixed modeling
 ========================================================
 - `lme4`  
 - `nlme`  
-- other packages avaialble (next)
+- other packages available (next)
 
 Additional packages (analysis)
 ========================================================
-- `MASS`: robust regression, tranforms, (G)LMM, GLM  
+- `MASS`: robust regression, transforms, (G)LMM, GLM  
 - `gam`: generalized additive models  
-- `gamm4`: generalized addtive models
+- `gamm4`: generalized additive models
 - `glmnet`: regularized regression
 - `mgcv`  
 - `splines`
