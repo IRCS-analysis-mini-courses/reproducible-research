@@ -43,17 +43,16 @@ For each class and hour, there will be a set of HTML  slides and a Jupyter/IPyth
 
 ## Hour 2: Report generation with [RMarkdown](http://rmarkdown.rstudio.com/), [Sweave](http://www.statistik.lmu.de/~leisch/Sweave/) and [knitr](http://yihui.name/knitr/)
 
-# Day 4: Advanced analysis
+# Day 4: Environments and Additional tools
 
-## Hour 1: Computer Algebra Systems (CAS)
+## Hour 1: 
+- Using `conda` as an environment manager for `python` and more
+- Creating, modifying, and sharing `conda` environments
+- Using `Packrat` as an environment manager for `R`
+- Creating, modifying, and sharing `Packrat` projects
+
+## Hour 2: Computer Algebra Systems (CAS)
 - Introduction to `SymPy`  
-- Notekeeping (symbolic manipulation in general)  
-- Algebra  
-- Linear algebra  
-- Calculus  
+- Symbolic manipulation: algebra, linear algebra, calculus  
 - Dynamical systems
-  
-## Hour 2: Curve-fitting
-- Optimization and loss functions
-- Regression as curve-fitting
-- Specifying your own function
+- Curve-fitting
