@@ -1,0 +1,12 @@
+name: test
+dependencies:
+- numpy=1.8.2=py27_0
+- openssl=1.0.1k=1
+- pip=7.1.0=py27_0
+- python=2.7.10=0
+- readline=6.2=2
+- setuptools=18.0.1=py27_0
+- sqlite=3.8.4.1=1
+- tk=8.5.18=0
+- zlib=1.2.8=0
+
